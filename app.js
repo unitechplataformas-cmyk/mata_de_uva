@@ -90,3 +90,39 @@ async function fetchVideoParts(parts) {
   }));
   return new Blob(chunks, {type: 'video/mp4'});
 }
+
+
+
+const contactCarousel = document.querySelector('.contact-carousel');
+if (contactCarousel) {
+  const contactItems = [...contactCarousel.querySelectorAll('.contact-carousel-item')];
+  const contactImages = contactItems.map(item => item.src);
+  let contactIndex = 0;
+  let contactTransitioning = false;
+  contactImages.forEach(src => { const image = new Image(); image.src = src; });
+  const setContactStates = (current, next, outgoing = -1) => {
+    contactItems.forEach((item, index) => {
+      item.classList.toggle('is-active', index === current);
+      item.classList.toggle('is-next', index === next);
+      item.classList.toggle('is-outgoing', index === outgoing);
+    });
+  };
+  const advanceContactCarousel = () => {
+    if (contactTransitioning) return;
+    contactTransitioning = true;
+    const nextIndex = (contactIndex + 1) % contactItems.length;
+    const followingIndex = (contactIndex + 2) % contactItems.length;
+    contactItems[contactIndex].classList.remove('is-active');
+    contactItems[contactIndex].classList.add('is-outgoing');
+    contactItems[nextIndex].classList.remove('is-next');
+    contactItems[nextIndex].classList.add('is-active');
+    contactItems[followingIndex].classList.add('is-next');
+    window.setTimeout(() => {
+      contactIndex = nextIndex;
+      setContactStates(contactIndex, (contactIndex + 1) % contactItems.length);
+      contactTransitioning = false;
+    }, 1000);
+  };
+  setContactStates(0, 1);
+  window.setInterval(advanceContactCarousel, 2000);
+}
