@@ -31,16 +31,37 @@ document.querySelectorAll('.story-toggle').forEach((button, index) => {
 });
 const experiences = [...document.querySelectorAll('.experience-list details')];
 const photo = document.querySelector('#experience-photo');
+let experienceTimer = null;
+let experienceImages = [];
+let experienceIndex = 0;
+
+const showExperienceImage = (src, alt) => {
+  photo.classList.add('is-changing');
+  photo.src = src;
+  photo.alt = alt;
+  photo.addEventListener('load', () => photo.classList.remove('is-changing'), {once: true});
+};
+
+const startExperienceCarousel = detail => {
+  if (experienceTimer) window.clearInterval(experienceTimer);
+  experienceImages = JSON.parse(detail.dataset.images || '[]');
+  experienceIndex = 0;
+  showExperienceImage(experienceImages[0], detail.dataset.alt);
+  if (experienceImages.length < 2) return;
+  experienceTimer = window.setInterval(() => {
+    experienceIndex = (experienceIndex + 1) % experienceImages.length;
+    showExperienceImage(experienceImages[experienceIndex], detail.dataset.alt);
+  }, 2500);
+};
+
 experiences.forEach(detail => detail.addEventListener('toggle', () => {
   if (!detail.open) return;
   experiences.forEach(other => { if (other !== detail) other.open = false; });
-  photo.classList.add('is-changing');
-  window.setTimeout(() => {
-    photo.src = detail.dataset.image;
-    photo.alt = detail.dataset.alt;
-    photo.addEventListener('load', () => photo.classList.remove('is-changing'), {once: true});
-  }, 180);
+  startExperienceCarousel(detail);
 }));
+
+const initialExperience = experiences.find(detail => detail.open);
+if (initialExperience) startExperienceCarousel(initialExperience);
 
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
 if (heroSlides.length > 1) {
