@@ -126,3 +126,29 @@ if (contactCarousel) {
   setContactStates(0, 1);
   window.setInterval(advanceContactCarousel, 2000);
 }
+const floatingInfoToggle = document.querySelector('.floating-info-toggle');
+const floatingInfoPanel = document.querySelector('#floating-info-panel');
+if (floatingInfoToggle && floatingInfoPanel) {
+  const closeFloatingInfo = () => {
+    floatingInfoToggle.setAttribute('aria-expanded', 'false');
+    floatingInfoPanel.setAttribute('aria-hidden', 'true');
+    floatingInfoPanel.classList.remove('is-open');
+  };
+  floatingInfoToggle.addEventListener('click', () => {
+    const isOpen = floatingInfoToggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) closeFloatingInfo();
+    else {
+      floatingInfoToggle.setAttribute('aria-expanded', 'true');
+      floatingInfoPanel.setAttribute('aria-hidden', 'false');
+      floatingInfoPanel.classList.add('is-open');
+      floatingInfoPanel.querySelector('input')?.focus();
+    }
+  });
+  floatingInfoPanel.addEventListener('submit', event => {
+    event.preventDefault();
+    closeFloatingInfo();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeFloatingInfo();
+  });
+}
