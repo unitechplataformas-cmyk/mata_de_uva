@@ -34,8 +34,12 @@ const photo = document.querySelector('#experience-photo');
 experiences.forEach(detail => detail.addEventListener('toggle', () => {
   if (!detail.open) return;
   experiences.forEach(other => { if (other !== detail) other.open = false; });
-  photo.src = detail.dataset.image;
-  photo.alt = detail.dataset.alt;
+  photo.classList.add('is-changing');
+  window.setTimeout(() => {
+    photo.src = detail.dataset.image;
+    photo.alt = detail.dataset.alt;
+    photo.addEventListener('load', () => photo.classList.remove('is-changing'), {once: true});
+  }, 180);
 }));
 
 const heroSlides = [...document.querySelectorAll('.hero-slide')];

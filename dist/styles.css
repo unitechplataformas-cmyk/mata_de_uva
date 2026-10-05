@@ -7,6 +7,9 @@
 .landscape img{height:130%;transform:translateY(-12%)}.hero h1{max-width:760px}nav a{white-space:nowrap}.story-overlay{visibility:hidden}.story-card.is-open .story-overlay{visibility:visible}.script-label{mix-blend-mode:multiply}.experiences .script-label{mix-blend-mode:normal}.story-card>img{min-height:350px}
 @media(min-width:1000px){.story-card:hover .story-overlay{visibility:visible}}
 @media(max-width:700px){.hero h1{font-size:clamp(40px,10.2vw,64px)}.story-card>img{min-height:380px}}
+
+#experience-photo{transition:opacity .25s ease}
+.is-changing{opacity:.2}
 .script-label,.brand img{mix-blend-mode:normal}
 .footer-logo{mix-blend-mode:darken}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
