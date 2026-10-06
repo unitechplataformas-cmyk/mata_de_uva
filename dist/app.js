@@ -31,27 +31,59 @@ document.querySelectorAll('.story-toggle').forEach((button, index) => {
 });
 const experiences = [...document.querySelectorAll('.experience-list details')];
 const photo = document.querySelector('#experience-photo');
+const experienceLayers = photo ? [...photo.querySelectorAll('.experience-photo-layer')] : [];
 let experienceTimer = null;
 let experienceImages = [];
 let experienceIndex = 0;
+let experienceActiveLayer = experienceLayers[0];
+let experienceNextLayer = experienceLayers[1];
+let experienceTransitionId = 0;
 
-const showExperienceImage = (src, alt) => {
-  photo.classList.add('is-changing');
-  photo.src = src;
-  photo.alt = alt;
-  photo.addEventListener('load', () => photo.classList.remove('is-changing'), {once: true});
+const preloadExperienceImage = (src, callback) => {
+  const image = new Image();
+  image.onload = () => callback(image);
+  image.src = src;
+};
+
+const showExperienceImage = (src, alt, immediate = false) => {
+  if (!experienceActiveLayer || !experienceNextLayer) return;
+  const transitionId = ++experienceTransitionId;
+  preloadExperienceImage(src, image => {
+    if (transitionId !== experienceTransitionId) return;
+    experienceNextLayer.src = image.src;
+    experienceNextLayer.alt = alt;
+    if (immediate) {
+      experienceActiveLayer.src = image.src;
+      experienceActiveLayer.alt = alt;
+      experienceActiveLayer.classList.add('is-current');
+      experienceActiveLayer.classList.remove('is-visible');
+      experienceNextLayer.classList.remove('is-current', 'is-visible');
+      return;
+    }
+    experienceActiveLayer.classList.remove('is-current', 'is-visible');
+    experienceNextLayer.classList.add('is-visible');
+    window.setTimeout(() => {
+      if (transitionId !== experienceTransitionId) return;
+      experienceNextLayer.classList.remove('is-visible');
+      experienceNextLayer.classList.add('is-current');
+      experienceActiveLayer.classList.remove('is-current');
+      const previousActive = experienceActiveLayer;
+      experienceActiveLayer = experienceNextLayer;
+      experienceNextLayer = previousActive;
+    }, 1400);
+  });
 };
 
 const startExperienceCarousel = detail => {
   if (experienceTimer) window.clearInterval(experienceTimer);
   experienceImages = JSON.parse(detail.dataset.images || '[]');
   experienceIndex = 0;
-  showExperienceImage(experienceImages[0], detail.dataset.alt);
+  showExperienceImage(experienceImages[0], detail.dataset.alt, !experienceActiveLayer?.getAttribute('src'));
   if (experienceImages.length < 2) return;
   experienceTimer = window.setInterval(() => {
     experienceIndex = (experienceIndex + 1) % experienceImages.length;
     showExperienceImage(experienceImages[experienceIndex], detail.dataset.alt);
-  }, 2500);
+  }, 6000);
 };
 
 experiences.forEach(detail => detail.addEventListener('toggle', () => {
@@ -62,7 +94,6 @@ experiences.forEach(detail => detail.addEventListener('toggle', () => {
 
 const initialExperience = experiences.find(detail => detail.open);
 if (initialExperience) startExperienceCarousel(initialExperience);
-
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
 if (heroSlides.length > 1) {
   let activeSlide = 0;
