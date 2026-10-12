@@ -101,7 +101,13 @@ if (heroSlides.length > 1) {
     heroSlides[activeSlide].classList.remove('is-active');
     activeSlide = (activeSlide + 1) % heroSlides.length;
     heroSlides[activeSlide].classList.add('is-active');
-  }, 6000);
+  }, 5000);
+  window.setTimeout(() => {
+    heroSlides.slice(1).forEach(slide => {
+      const preload = new Image();
+      preload.src = slide.currentSrc || slide.src;
+    });
+  }, 250);
 }
 
 const landVideo = document.querySelector('.landscape video[data-video-parts]');
