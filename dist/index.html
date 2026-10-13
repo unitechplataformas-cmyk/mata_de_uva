@@ -57,15 +57,71 @@
       </div>
     </div>
   </section>
-  <section class="experiences section" id="experiencias" aria-labelledby="experiences-title">
-    <svg class="wave wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V40C1080 180 760 10 440 20C220 0 120 10 0 25Z" fill="#fbf5ed"/></svg>
-    <div class="intro"><img class="script-label experience-label" src="assets/experiencia.png" alt="La experiencia" width="940" height="200"><h2 id="experiences-title">Vivir Mata de Uva</h2><p>Mata de Uva es un espacio para encontrarse, celebrar y disfrutar del paisaje. Un lugar que puede adaptarse a diferentes momentos, desde una celebración especial hasta una experiencia más cercana con el viñedo.</p><p>Cada ocasión tiene su propia forma de vivirse. Por eso, creamos espacios que pueden transformarse de acuerdo con lo que quieres celebrar, siempre rodeados por la naturaleza y la esencia del viñedo.</p></div>
-    <div class="experience-grid container"><div class="experience-list">
-        <details open data-images='["assets/EXPEROENCIAS_CABALGATA01.png","assets/EXPEROENCIAS_CABALGATA02.png","assets/EXPEROENCIAS_CABALGATA03.png","assets/EXPEROENCIAS_CABALGATA04.png"]' data-alt="Cabalgata a caballo entre los paisajes de Mata de Uva"><summary>Cabalgata <span aria-hidden="true"></span></summary><p>Recorre los paisajes de Mata de Uva a caballo y disfruta del viñedo desde una perspectiva diferente, en contacto con la naturaleza.</p></details>
-        <details data-images='["assets/EXPERIENCIAS_eventos02.png","assets/EXPERIENCIAS_eventos03.png"]' data-alt="Evento entre viñedos de Mata de Uva"><summary>Eventos <span aria-hidden="true"></span></summary><p>Un espacio versátil para crear encuentros a tu medida, rodeados por el paisaje y la esencia de Mata de Uva.</p></details>
-        <details data-images='["assets/EXPERIENCIAS_catadevino01.png","assets/EXPERIENCIAS_catadevino02.png"]' data-alt="Cata de vinos de Mata de Uva"><summary>Cata de vinos <span aria-hidden="true"></span></summary><p>Descubre nuestros vinos a través de una experiencia que invita a conocer sus aromas, sabores y la historia que hay detrás de cada copa.</p></details>
-      </div><div id="experience-photo" class="experience-photo-crossfade" aria-live="polite"><img class="experience-photo-layer is-current" src="assets/EXPEROENCIAS_CABALGATA01.png" alt="Cabalgata a caballo entre los paisajes de Mata de Uva" width="1402" height="1122" loading="lazy"><img class="experience-photo-layer" src="assets/EXPEROENCIAS_CABALGATA01.png" alt="" width="1402" height="1122" loading="lazy"></div></div>
-    <svg class="wave wave-bottom" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 65C370-60 740 130 1100 80C1260 70 1360 45 1440 45V100H0Z" fill="#fbf5ed"/></svg>
+  <section class="experiences section v2-experiences" id="experiencias" aria-labelledby="experiences-title">
+    <div class="intro experiences-intro">
+      <img class="script-label experience-label" src="assets/experiencia-v2.png" alt="La experiencia" width="940" height="200">
+      <h2 id="experiences-title">Vivir Mata de Uva</h2>
+      <p>Mata de Uva es un espacio para encontrarse, celebrar y disfrutar del paisaje. Un lugar que puede adaptarse a diferentes momentos, desde una celebración especial hasta una experiencia más cercana con el viñedo.</p>
+      <p>Cada ocasión tiene su propia forma de vivirse. Por eso, creamos espacios que pueden transformarse de acuerdo con lo que quieres celebrar, siempre rodeados por la naturaleza y la esencia del viñedo.</p>
+    </div>
+    <div class="experience-carousel container" data-experience-carousel aria-label="Experiencias Mata de Uva">
+      <div class="experience-cards">
+        <article class="experience-card is-prev" data-category="0" tabindex="0" aria-label="Cabalgatas">
+          <div class="experience-card-media">
+            <img class="experience-card-image is-active" src="assets/carousel-cabalgata-01.png" alt="Cabalgatas en Mata de Uva" loading="lazy">
+            <img class="experience-card-image" src="assets/carousel-cabalgata-02.png" alt="" loading="lazy">
+            <img class="experience-card-image" src="assets/carousel-cabalgata-03.png" alt="" loading="lazy">
+            <img class="experience-card-image" src="assets/carousel-cabalgata-04.png" alt="" loading="lazy">
+            <div class="experience-card-overlay"><h3>Cabalgatas</h3><p>Recorre los paisajes de Mata de Uva a caballo y disfruta del viñedo desde una perspectiva diferente, en contacto con la naturaleza.</p></div>
+          </div>
+        </article>
+        <article class="experience-card is-active" data-category="1" tabindex="0" aria-label="Eventos">
+          <div class="experience-card-media">
+            <img class="experience-card-image is-active" src="assets/carousel-eventos-01.png" alt="Eventos en Mata de Uva" fetchpriority="high">
+            <img class="experience-card-image" src="assets/carousel-eventos-02.png" alt="" loading="lazy">
+            <img class="experience-card-image" src="assets/carousel-eventos-03.png" alt="" loading="lazy">
+            <img class="experience-card-image" src="assets/carousel-eventos-04.jpeg" alt="" loading="lazy">
+            <div class="experience-card-overlay"><h3>Eventos</h3><p>Un espacio versátil para crear encuentros a la medida, desde eventos privados hasta experiencias diseñadas especialmente para cada ocasión.</p></div>
+          </div>
+        </article>
+        <article class="experience-card is-next" data-category="2" tabindex="0" aria-label="Cata de Vino">
+          <div class="experience-card-media">
+            <img class="experience-card-image is-active" src="assets/carousel-cata-01.png" alt="Cata de Vino en Mata de Uva" loading="lazy">
+            <img class="experience-card-image" src="assets/carousel-cata-02.png" alt="" loading="lazy">
+            <img class="experience-card-image" src="assets/carousel-cata-03.jpg" alt="" loading="lazy">
+            <div class="experience-card-overlay"><h3>Cata de Vino</h3><p>Descubre nuestros vinos a través de una experiencia que invita a conocer sus aromas, sabores y la historia que hay detrás de cada copa.</p></div>
+          </div>
+        </article>
+      </div>
+      <div class="experience-dots" role="tablist" aria-label="Seleccionar experiencia">
+        <button type="button" role="tab" aria-selected="false" aria-label="Cabalgatas" data-experience-target="0"></button>
+        <button type="button" role="tab" aria-selected="true" aria-label="Eventos" data-experience-target="1" class="is-active"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Cata de Vino" data-experience-target="2"></button>
+      </div>
+    </div>
+  </section>
+  <section class="middle-gallery-section" aria-labelledby="middle-gallery-title">
+    <h2 id="middle-gallery-title" class="middle-gallery-title">Cada espacio tiene su encanto</h2>
+    <div class="middle-gallery-viewport" data-middle-gallery>
+      <div class="middle-gallery-track">
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-01.png" alt="Galería Mata de Uva 01" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-02.png" alt="Galería Mata de Uva 02" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-03.png" alt="Galería Mata de Uva 03" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-04.png" alt="Galería Mata de Uva 04" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-05.png" alt="Galería Mata de Uva 05" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-06.png" alt="Galería Mata de Uva 06" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-07.png" alt="Galería Mata de Uva 07" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-08.png" alt="Galería Mata de Uva 08" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-09.png" alt="Galería Mata de Uva 09" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-10.jpg" alt="Galería Mata de Uva 10" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-11.jpg" alt="Galería Mata de Uva 11" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-12.jpg" alt="Galería Mata de Uva 12" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-13.jpg" alt="Galería Mata de Uva 13" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-14.jpg" alt="Galería Mata de Uva 14" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-15.jpg" alt="Galería Mata de Uva 15" loading="lazy"></a>
+        <a class="middle-gallery-link" href="https://www.instagram.com/matade.uva?stkn=MTBpZzlsZWhhczZidw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver Mata de Uva en Instagram"><img src="assets/gallery-middle-16.jpeg" alt="Galería Mata de Uva 16" loading="lazy"></a>
+      </div>
+    </div>
   </section>
   <section class="future section" aria-labelledby="future-title"><img class="bottle bottle-rose" src="assets/Im11.png" alt="" loading="lazy"><div class="intro"><img class="script-label" src="assets/historia.png" alt="La historia" width="750" height="200"><h2 id="future-title">Apenas comienza</h2><p>Mata de Uva es un proyecto que crece con el tiempo.</p><p>Hoy, nuestras vides forman parte del paisaje y nuestras puertas se abren para recibir celebraciones, encuentros y experiencias alrededor del viñedo. Mañana, esta historia tendrá una nueva forma.</p><p>Nuestro propio vino será parte de ese futuro.</p></div><img class="bottle bottle-red" src="assets/Im12.png" alt="" loading="lazy"></section>
   <section class="contact section container" id="contacto" aria-labelledby="contact-title"><div class="contact-photo contact-carousel" aria-label="Galería de Mata de Uva"><img class="contact-carousel-item is-active" src="assets/Carrusel_final0.png" alt="La arquitectura de Mata de Uva bajo la luz dorada del atardecer" width="1122" height="1402" loading="eager"><img class="contact-carousel-item is-next" src="assets/Carrusel_final1.png" alt="" width="1122" height="1402" loading="eager"><img class="contact-carousel-item" src="assets/Carrusel_final2.png" alt="" width="1122" height="1402" loading="eager"><img class="contact-carousel-item" src="assets/Carrusel_final3.png" alt="" width="1122" height="1402" loading="eager"><img class="contact-carousel-item" src="assets/Carrusel_final4.png" alt="" width="1122" height="1402" loading="eager"><img class="contact-carousel-item" src="assets/Carrusel_final5.png" alt="" width="1122" height="1402" loading="eager"><img class="contact-carousel-item" src="assets/Carrusel_final6.png" alt="" width="1122" height="1402" loading="eager"></div><div class="contact-copy"><h2 id="contact-title"><img class="script-label visit-label" src="assets/visita.png" alt="Ven a conocer Mata de Uva" width="870" height="360"></h2><p>Un viñedo para celebrar, compartir y descubrir una forma diferente de vivir el paisaje.</p><a class="button" href="https://wa.me/5219987506939?text=Hola%2C%20me%20gustar%C3%ADa%20conocer%20Mata%20de%20Uva." target="_blank" rel="noopener noreferrer">Cuéntanos tu idea <span class="button-arrow" aria-hidden="true">→</span><span class="sr-only">por WhatsApp, abre en otra pestaña</span></a></div></section>
@@ -86,6 +142,8 @@
     <button type="submit">Enviar</button>
   </form>
 </aside></body></html>
+
+
 
 
 

@@ -71,3 +71,46 @@
 
 
 
+
+/* V2 Cambio 3: carrusel editorial de experiencias */
+.v2-experiences{background:#fff;color:var(--ink);padding:116px 0 126px;overflow:hidden}
+.v2-experiences .wave{display:none}
+.v2-experiences .experiences-intro{max-width:760px;margin-bottom:58px}
+.v2-experiences .experiences-intro h2{color:var(--wine);font-size:clamp(30px,3vw,42px);letter-spacing:2px}
+.v2-experiences .experiences-intro p{color:#51474a;font-size:15px;line-height:1.5}
+.experience-carousel{max-width:1120px;overflow:visible}
+.experience-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;gap:26px;min-height:455px;padding:28px 0}
+.experience-card{position:relative;min-width:0;cursor:pointer;outline:none;transition:transform .8s cubic-bezier(.4,0,.2,1),opacity .8s ease;will-change:transform,opacity}
+.experience-card.is-prev,.experience-card.is-next{transform:scale(.86);opacity:.92;z-index:1}
+.experience-card.is-active{transform:scale(1.08);z-index:2}
+.experience-card:focus-visible{outline:3px solid var(--pink);outline-offset:8px}
+.experience-card-media{position:relative;aspect-ratio:.72;overflow:hidden;border-radius:22px;background:#ddd;isolation:isolate}
+.experience-card-image{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;opacity:0;transition:opacity 1.2s ease-in-out;will-change:opacity}
+.experience-card-image.is-active{opacity:1;z-index:1}
+.experience-card-image.is-next-image{opacity:1;z-index:2}
+.experience-card-overlay{position:absolute;inset:auto 0 0;padding:70px 24px 24px;color:#fff;background:linear-gradient(transparent,rgba(34,10,25,.9));z-index:3;pointer-events:none}
+.experience-card-overlay h3{margin:0 0 8px;font:500 30px/1.05 "Cormorant Garamond",Cormorant,Georgia,serif;letter-spacing:.3px}
+.experience-card-overlay p{margin:0;max-width:270px;font-family:"neue-haas-grotesk-display",sans-serif;font-size:13px;line-height:1.35;color:#fff}
+.experience-dots{display:flex;justify-content:center;gap:9px;margin-top:20px}
+.experience-dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#d6d0d2;cursor:pointer;transition:transform .25s,background .25s}
+.experience-dots button.is-active{background:var(--pink);transform:scale(1.15)}
+@media(max-width:1000px){.v2-experiences{padding:90px 0 100px}.experience-cards{gap:14px;min-height:390px}.experience-card-overlay{padding:54px 16px 17px}.experience-card-overlay h3{font-size:25px}.experience-card-overlay p{font-size:11px}.experience-card.is-active{transform:scale(1.04)}}
+@media(max-width:700px){.v2-experiences{padding:72px 0 85px}.v2-experiences .experiences-intro{margin-bottom:30px}.v2-experiences .experiences-intro p{font-size:15px}.experience-cards{display:block;min-height:0;padding:12px 22px}.experience-card{display:none}.experience-card.is-active{display:block;transform:none;opacity:1}.experience-card-media{aspect-ratio:.78}.experience-card-overlay{padding:82px 22px 22px}.experience-card-overlay h3{font-size:30px}.experience-card-overlay p{max-width:100%;font-size:13px}.experience-dots{margin-top:13px}}
+
+/* Ajuste cromático V2: Experiencias */
+.v2-experiences .experiences-intro h2{color:#000}
+.v2-experiences .experiences-intro p{color:#000}
+
+/* V2 Cambio 4: galería horizontal continua */
+.middle-gallery-section{background:#fff;padding:92px 0 105px;overflow:hidden}
+.middle-gallery-title{margin:0 auto 38px;text-align:center;color:var(--wine);font:italic 38px/1.05 "Cormorant Garamond",Cormorant,Georgia,serif;letter-spacing:.3px;text-transform:none}
+.middle-gallery-viewport{width:100%;overflow:hidden}
+.middle-gallery-track{display:flex;width:max-content;gap:12px;animation:middle-gallery-marquee 42s linear infinite;will-change:transform}
+.middle-gallery-link{display:block;flex:0 0 220px;height:320px;cursor:pointer;outline:none}
+.middle-gallery-link img{display:block;width:100%;height:100%;object-fit:cover;max-width:none}
+.middle-gallery-link:focus-visible{outline:3px solid var(--pink);outline-offset:4px}
+.middle-gallery-viewport:hover .middle-gallery-track,.middle-gallery-viewport:focus-within .middle-gallery-track{animation-play-state:paused}
+@keyframes middle-gallery-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-50% - 6px),0,0)}}
+@media(max-width:1000px){.middle-gallery-section{padding:75px 0 85px}.middle-gallery-title{font-size:34px}.middle-gallery-track{gap:10px;animation-duration:38s}.middle-gallery-link{flex-basis:180px;height:270px}}
+@media(max-width:700px){.middle-gallery-section{padding:62px 0 72px}.middle-gallery-title{font-size:31px;margin-bottom:28px;padding:0 20px}.middle-gallery-track{gap:8px;animation-duration:34s}.middle-gallery-link{flex-basis:145px;height:220px}}
+@media(prefers-reduced-motion:reduce){.middle-gallery-track{animation:none;transform:none}.middle-gallery-viewport{overflow-x:auto;overscroll-behavior-x:contain}}

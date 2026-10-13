@@ -29,71 +29,68 @@ document.querySelectorAll('.story-toggle').forEach((button, index) => {
     button.querySelector('span').textContent = open ? '−' : '+';
   });
 });
-const experiences = [...document.querySelectorAll('.experience-list details')];
-const photo = document.querySelector('#experience-photo');
-const experienceLayers = photo ? [...photo.querySelectorAll('.experience-photo-layer')] : [];
-let experienceTimer = null;
-let experienceImages = [];
-let experienceIndex = 0;
-let experienceActiveLayer = experienceLayers[0];
-let experienceNextLayer = experienceLayers[1];
-let experienceTransitionId = 0;
-
-const preloadExperienceImage = (src, callback) => {
-  const image = new Image();
-  image.onload = () => callback(image);
-  image.src = src;
+const experienceCarousel = document.querySelector('[data-experience-carousel]');
+const experienceCards = experienceCarousel ? [...experienceCarousel.querySelectorAll('.experience-card')] : [];
+const experienceDots = experienceCarousel ? [...experienceCarousel.querySelectorAll('[data-experience-target]')] : [];
+let activeExperience = 1;
+let experienceRotationTimer = null;
+const experiencePhotos = experienceCards.map(card => [...card.querySelectorAll('.experience-card-image')]);
+const experiencePhotoIndexes = experiencePhotos.map(() => 0);
+const setExperiencePosition = (card, position) => {
+  card.classList.remove('is-prev', 'is-active', 'is-next');
+  card.classList.add(position);
 };
-
-const showExperienceImage = (src, alt, immediate = false) => {
-  if (!experienceActiveLayer || !experienceNextLayer) return;
-  const transitionId = ++experienceTransitionId;
-  preloadExperienceImage(src, image => {
-    if (transitionId !== experienceTransitionId) return;
-    experienceNextLayer.src = image.src;
-    experienceNextLayer.alt = alt;
-    if (immediate) {
-      experienceActiveLayer.src = image.src;
-      experienceActiveLayer.alt = alt;
-      experienceActiveLayer.classList.add('is-current');
-      experienceActiveLayer.classList.remove('is-visible');
-      experienceNextLayer.classList.remove('is-current', 'is-visible');
-      return;
-    }
-    experienceActiveLayer.classList.remove('is-current', 'is-visible');
-    experienceNextLayer.classList.add('is-visible');
-    window.setTimeout(() => {
-      if (transitionId !== experienceTransitionId) return;
-      experienceNextLayer.classList.remove('is-visible');
-      experienceNextLayer.classList.add('is-current');
-      experienceActiveLayer.classList.remove('is-current');
-      const previousActive = experienceActiveLayer;
-      experienceActiveLayer = experienceNextLayer;
-      experienceNextLayer = previousActive;
-    }, 1400);
+const updateExperiencePositions = nextIndex => {
+  activeExperience = nextIndex;
+  experienceCards.forEach((card, index) => {
+    const offset = (index - activeExperience + experienceCards.length) % experienceCards.length;
+    setExperiencePosition(card, offset === 0 ? 'is-active' : offset === 1 ? 'is-next' : 'is-prev');
+    card.setAttribute('aria-current', offset === 0 ? 'true' : 'false');
+  });
+  experienceDots.forEach((dot, index) => {
+    const selected = index === activeExperience;
+    dot.classList.toggle('is-active', selected);
+    dot.setAttribute('aria-selected', selected ? 'true' : 'false');
   });
 };
-
-const startExperienceCarousel = detail => {
-  if (experienceTimer) window.clearInterval(experienceTimer);
-  experienceImages = JSON.parse(detail.dataset.images || '[]');
-  experienceIndex = 0;
-  showExperienceImage(experienceImages[0], detail.dataset.alt, !experienceActiveLayer?.getAttribute('src'));
-  if (experienceImages.length < 2) return;
-  experienceTimer = window.setInterval(() => {
-    experienceIndex = (experienceIndex + 1) % experienceImages.length;
-    showExperienceImage(experienceImages[experienceIndex], detail.dataset.alt);
+const rotateExperiencePhotos = categoryIndex => {
+  const layers = experiencePhotos[categoryIndex];
+  if (!layers || layers.length < 2) return;
+  const current = experiencePhotoIndexes[categoryIndex];
+  const next = (current + 1) % layers.length;
+  layers[next].classList.add('is-next-image');
+  requestAnimationFrame(() => {
+    layers[current].classList.remove('is-active');
+    layers[next].classList.add('is-active');
+  });
+  window.setTimeout(() => {
+    layers[current].classList.remove('is-next-image');
+    layers[next].classList.remove('is-next-image');
+  }, 1200);
+  experiencePhotoIndexes[categoryIndex] = next;
+};
+const startExperienceRotation = () => {
+  if (experienceRotationTimer) window.clearInterval(experienceRotationTimer);
+  experienceRotationTimer = window.setInterval(() => {
+    experiencePhotos.forEach((_, index) => rotateExperiencePhotos(index));
   }, 6000);
 };
-
-experiences.forEach(detail => detail.addEventListener('toggle', () => {
-  if (!detail.open) return;
-  experiences.forEach(other => { if (other !== detail) other.open = false; });
-  startExperienceCarousel(detail);
-}));
-
-const initialExperience = experiences.find(detail => detail.open);
-if (initialExperience) startExperienceCarousel(initialExperience);
+if (experienceCarousel && experienceCards.length === 3) {
+  updateExperiencePositions(activeExperience);
+  experienceDots.forEach(dot => dot.addEventListener('click', () => updateExperiencePositions(Number(dot.dataset.experienceTarget))));
+  experienceCards.forEach((card, index) => {
+    card.addEventListener('click', () => updateExperiencePositions(index));
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); updateExperiencePositions(index); }
+    });
+  });
+  startExperienceRotation();
+}
+const middleGalleryTrack = document.querySelector('.middle-gallery-track');
+if (middleGalleryTrack) {
+  const middleGalleryItems = [...middleGalleryTrack.children];
+  middleGalleryItems.forEach(item => middleGalleryTrack.appendChild(item.cloneNode(true)));
+}
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
 if (heroSlides.length > 1) {
   let activeSlide = 0;
@@ -189,3 +186,4 @@ if (floatingInfoToggle && floatingInfoPanel) {
     if (event.key === 'Escape') closeFloatingInfo();
   });
 }
+
