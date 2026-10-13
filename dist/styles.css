@@ -201,3 +201,12 @@ p, .footer address, .story-overlay p, .experience-list p, .about-v2-intro p, .ab
   }
 }
 
+
+/* Open licensed script title for the intermediate gallery. */
+.middle-gallery-title {
+  font-family: "Parisienne", cursive;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--wine);
+}
+
