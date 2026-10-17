@@ -187,3 +187,28 @@ if (floatingInfoToggle && floatingInfoPanel) {
   });
 }
 
+
+const aboutCarousel = document.querySelector('[data-about-carousel]');
+if (aboutCarousel) {
+  const aboutSlides = [...aboutCarousel.querySelectorAll('[data-about-slide]')];
+  const aboutDots = [...document.querySelectorAll('[data-about-target]')];
+  let aboutIndex = 0;
+  let aboutTimer;
+  const showAboutSlide = (index) => {
+    aboutIndex = (index + aboutSlides.length) % aboutSlides.length;
+    aboutSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === aboutIndex));
+    aboutDots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === aboutIndex);
+      dot.setAttribute('aria-selected', String(i === aboutIndex));
+    });
+  };
+  const restartAboutTimer = () => {
+    window.clearInterval(aboutTimer);
+    aboutTimer = window.setInterval(() => showAboutSlide(aboutIndex + 1), 5000);
+  };
+  aboutDots.forEach((dot, i) => dot.addEventListener('click', () => { showAboutSlide(i); restartAboutTimer(); }));
+  aboutCarousel.addEventListener('mouseenter', () => window.clearInterval(aboutTimer));
+  aboutCarousel.addEventListener('mouseleave', restartAboutTimer);
+  restartAboutTimer();
+}
+
