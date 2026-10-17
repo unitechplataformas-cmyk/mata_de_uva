@@ -103,7 +103,7 @@
 
 /* V2 Cambio 4: galería horizontal continua */
 .middle-gallery-section{background:#fff;padding:92px 0 105px;overflow:hidden}
-.middle-gallery-title{margin:0 auto 38px;text-align:center;color:var(--wine);font:italic 38px/1.05 "Cormorant Garamond",Cormorant,Georgia,serif;letter-spacing:.3px;text-transform:none}
+.middle-gallery-title{margin:0 auto 38px;text-align:center;color:var(--wine);font:38px/1.05 var(--font-editorial);letter-spacing:.3px;text-transform:none}
 .middle-gallery-viewport{width:100%;overflow:hidden}
 .middle-gallery-track{display:flex;width:max-content;gap:12px;animation:middle-gallery-marquee 42s linear infinite;will-change:transform}
 .middle-gallery-link{display:block;flex:0 0 220px;height:320px;cursor:pointer;outline:none}
@@ -130,7 +130,7 @@ p, .footer address, .story-overlay p, .experience-list p, .about-v2-intro p, .ab
 }
 .middle-gallery-title {
   font-family: var(--font-editorial);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
 }
 
@@ -202,11 +202,11 @@ p, .footer address, .story-overlay p, .experience-list p, .about-v2-intro p, .ab
 }
 
 
-/* Open licensed script title for the intermediate gallery. */
+/* V3 editorial gallery title uses the upright serif variant. */
 .middle-gallery-title {
-  font-family: "Parisienne", cursive;
+  font-family: var(--font-editorial);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--wine);
 }
 
@@ -238,4 +238,87 @@ h3,
 /* Las reglas explícitas de la sección aprobada permanecen intactas. */
 .future .intro h2 { font-family: var(--font-editorial); }
 .future .intro p { font-family: var(--font-copy); }
+
+
+/* V3: cuatro fotografías visibles en escritorio, dos en tablet y una en móvil. */
+.middle-gallery-link { flex-basis: calc((100vw - 36px) / 4); height: min(320px, 28vw); }
+@media (max-width:1000px) { .middle-gallery-link { flex-basis: calc((100vw - 10px) / 2); height: 270px; } }
+@media (max-width:700px) { .middle-gallery-link { flex-basis: calc(100vw - 8px); height: 220px; } }
+
+
+/* V3: bloque editorial Sobre nosotros sobre fotografía de paisaje. */
+.about-v3 { padding: 0; background: #fff; }
+.about-v3-media { position: relative; min-height: 250px; overflow: hidden; }
+.about-v3-media > img { display: block; width: 100%; height: 100%; min-height: 250px; object-fit: cover; object-position: center 48%; }
+.about-v3-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 36px 24px; text-align: center; color: #fff; background: rgba(63, 5, 41, .72); }
+.about-v3-overlay h2 { margin: 0 0 12px; color: #fff; font: 500 clamp(28px, 3vw, 42px)/1.05 var(--font-editorial); letter-spacing: 1.5px; }
+.about-v3-overlay p { max-width: 560px; margin: 0; color: #fff; font: 400 clamp(14px, 1.2vw, 18px)/1.4 var(--font-copy); }
+@media (max-width:700px) { .about-v3-media, .about-v3-media > img { min-height: 220px; } .about-v3-overlay { padding: 28px 22px; } .about-v3-overlay h2 { font-size: 30px; } .about-v3-overlay p { font-size: 14px; } }
+
+
+/* V3: carrusel único para Filosofía, Nuestra Historia y Sobre Nosotros. */
+.about-carousel { position: relative; min-height: clamp(300px, 34vw, 520px); overflow: hidden; background: var(--wine); color: #fff; }
+.about-carousel-track { position: relative; min-height: inherit; }
+.about-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+.about-slide.is-active { opacity: 1; pointer-events: auto; }
+.about-slide > img { display: block; width: 100%; height: 100%; min-height: inherit; object-fit: cover; object-position: center; }
+.about-slide-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 24px 70px; text-align: center; color: #fff; background: rgba(63, 5, 41, .64); }
+.about-slide-overlay h2 { margin: 0 0 14px; color: #fff; font: 500 clamp(28px, 3vw, 44px)/1.05 var(--font-editorial); letter-spacing: 1px; }
+.about-slide-overlay p { max-width: 680px; margin: 0; color: #fff; font: 400 clamp(14px, 1.2vw, 18px)/1.4 var(--font-copy); }
+.about-carousel-dots { position: absolute; z-index: 2; bottom: 24px; left: 50%; display: flex; gap: 8px; transform: translateX(-50%); }
+.about-carousel-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: #fff8; cursor: pointer; }
+.about-carousel-dots button.is-active { background: var(--pink); }
+@media (max-width:700px) { .about-carousel { min-height: 360px; } .about-slide-overlay { padding: 34px 22px 64px; } .about-slide-overlay h2 { font-size: 30px; } .about-slide-overlay p { font-size: 14px; } }
+
+/* V3: los encabezados editoriales usan la variante recta; no heredan cursiva. */
+h1, h2, h3, .middle-gallery-title, .experience-card-overlay h3, .experience-list summary, .story-toggle, .button { font-style: normal; }
+.middle-gallery-title { font-family: var(--font-editorial); font-style: normal; }
+
+/* V3: los encabezados del mockup son editoriales rectos; las excepciones manuscritas de V2 no se usan aquí. */
+.v3-title-kicker,
+.v3-title-subtitle,
+.v3-title-contact {
+  font-family: var(--font-editorial);
+  font-style: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--wine);
+  letter-spacing: 1px;
+  line-height: 1.02;
+}
+.v3-title-kicker { font-size: clamp(27px, 2.6vw, 38px); margin-bottom: 2px; }
+.v3-title-subtitle { font-size: clamp(25px, 2.45vw, 36px); margin-bottom: 22px; }
+.v2-experiences .v3-title-kicker { margin-bottom: 2px; }
+.v2-experiences .experiences-intro h2#experiences-title { color: var(--wine); font-family: var(--font-editorial); font-style: normal; font-weight: 500; font-size: clamp(28px, 2.8vw, 40px); letter-spacing: 1px; }
+.v2-experiences .experiences-intro > .v3-title-kicker {
+  color: var(--wine);
+  font-family: var(--font-editorial);
+  font-style: normal;
+  font-weight: 500;
+}
+.future .v3-title-kicker { color: #fff; }
+.future .intro > h2#future-title { color: #fff; font-family: var(--font-editorial); font-style: normal; font-weight: 500; }
+.v3-title-contact { margin: 0 0 22px; font-size: clamp(30px, 3vw, 43px); }
+.middle-gallery-title { text-transform: uppercase; max-width: 560px; }
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url('assets/cormorant-regular.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+.middle-gallery-title {
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 1px;
+  max-width: 560px;
+}
+@media (max-width:700px) {
+  .v3-title-kicker { font-size: 29px; }
+  .v3-title-subtitle { font-size: 27px; }
+  .v2-experiences .experiences-intro h2#experiences-title { font-size: 30px; }
+  .v3-title-contact { font-size: 31px; }
+}
 
