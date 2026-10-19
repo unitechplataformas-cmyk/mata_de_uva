@@ -368,3 +368,23 @@ body { padding-top: 96px; }
 .contact-map .map-link span { font-size: 16px; line-height: 1; text-decoration: none; }
 .contact-map .map-link:hover { color: var(--pink); }
 
+/* Estandarización tipográfica V3 aprobada: títulos editoriales. */
+:root { --title-size-v3: 38.5px; --title-leading-v3: 39.2px; }
+.hero h1,
+.land .v3-title-kicker,
+.land .v3-title-subtitle,
+.about-slide-overlay h2,
+.v2-experiences .experiences-intro > h2,
+#experiences-title,
+.v2-experiences .experiences-intro h2#experiences-title,
+.experience-card-overlay h3,
+.experience-list summary,
+.middle-gallery-title,
+.future .intro > h2,
+.v3-title-contact,
+.story-overlay h3,
+.floating-info-panel h2 {
+  font-size: var(--title-size-v3);
+  line-height: var(--title-leading-v3);
+}
+
