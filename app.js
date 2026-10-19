@@ -248,6 +248,17 @@ if (!motionMedia.matches && 'IntersectionObserver' in window) {
   document.querySelectorAll('[data-reveal-ready]').forEach(element => element.classList.add('is-revealed'));
 }
 
+// El footer debe revelarse aunque el viewport sea muy bajo o el umbral
+// del observador general no llegue a cumplirse al alcanzar el final.
+const footer = document.querySelector('.footer');
+if (footer && !motionMedia.matches && 'IntersectionObserver' in window) {
+  const footerObserver = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    footer.querySelectorAll('[data-reveal-ready]').forEach(element => element.classList.add('is-revealed'));
+    footerObserver.disconnect();
+  }, { threshold: 0, rootMargin: '0px' });
+  footerObserver.observe(footer);
+}
 const header = document.querySelector('.header');
 const hero = document.querySelector('.hero');
 const curtainSection = document.querySelector('.land');
