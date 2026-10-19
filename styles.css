@@ -324,3 +324,12 @@ h1, h2, h3, .middle-gallery-title, .experience-card-overlay h3, .experience-list
   .v2-experiences .experiences-intro h2#experiences-title { font-size: 30px; }
   .v3-title-contact { font-size: 31px; }
 }
+
+/* V3: header persistente y contraste del identificador del Hero. */
+body { padding-top: 96px; }
+.header { position: fixed; inset: 0 0 auto; width: 100%; z-index: 1000; }
+.hero .eyebrow { color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, .45); }
+@media (max-width: 700px) {
+  body { padding-top: 80px; }
+  html { scroll-padding-top: 90px; }
+}
