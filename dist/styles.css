@@ -388,3 +388,9 @@ body { padding-top: 96px; }
   line-height: var(--title-leading-v3);
 }
 
+
+/* Responsive audit: slow the middle gallery on small screens without changing desktop timing. */
+@media (max-width: 700px) {
+  .middle-gallery-track { animation-duration: 68s; }
+}
+
