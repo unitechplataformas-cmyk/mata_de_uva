@@ -20,7 +20,7 @@ El sistema usa un contenedor máximo de 1160 px, cuerpo de 16 px, títulos fluid
 ## Recursos y contenido pendientes de origen
 
 - El PDF muestra una captura de video, pero no incluye un archivo reproducible. La sección de paisaje utiliza la fotografía recuperada, con el encuadre ocultando los controles de la captura. No se simula un reproductor. Sustituirla por video real si se proporciona.
-- Los enlaces de teléfono y WhatsApp usan el número del PDF: +52 55 1285 2160. El usuario inicia el contacto; no se envían mensajes automáticamente.
+- Los enlaces de teléfono y WhatsApp usan el número del PDF: +52 56 1267 5234. El usuario inicia el contacto; no se envían mensajes automáticamente.
 - La ubicación abre una búsqueda de Maps, ya que no se proporcionaron coordenadas o dirección precisa.
 - No se inventaron cuentas de redes sociales ni formularios sin servicio de recepción.
 
