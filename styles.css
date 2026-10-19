@@ -357,3 +357,6 @@ body { padding-top: 96px; }
     flex-basis: calc(100vw - 8px);
   }
 }
+
+/* Ajuste de interlineado V3: separación uniforme entre los títulos de Experiencias. */
+.v2-experiences .v3-title-kicker { margin-bottom: 14px; }
