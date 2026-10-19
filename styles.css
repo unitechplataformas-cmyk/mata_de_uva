@@ -73,7 +73,7 @@
 
 
 /* V2 Cambio 3: carrusel editorial de experiencias */
-.v2-experiences{background:#fff;color:var(--ink);padding:116px 0 126px;overflow:hidden}
+.v2-experiences{background:#fff;color:var(--ink);padding:116px 0 32px;overflow:hidden}
 .v2-experiences .wave{display:none}
 .v2-experiences .experiences-intro{max-width:760px;margin-bottom:58px}
 .v2-experiences .experiences-intro h2{color:var(--wine);font-size:clamp(30px,3vw,42px);letter-spacing:2px}
@@ -94,15 +94,15 @@
 .experience-dots{display:flex;justify-content:center;gap:9px;margin-top:20px}
 .experience-dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#d6d0d2;cursor:pointer;transition:transform .25s,background .25s}
 .experience-dots button.is-active{background:var(--pink);transform:scale(1.15)}
-@media(max-width:1000px){.v2-experiences{padding:90px 0 100px}.experience-cards{gap:14px;min-height:390px}.experience-card-overlay{padding:54px 16px 17px}.experience-card-overlay h3{font-size:25px}.experience-card-overlay p{font-size:11px}.experience-card.is-active{transform:scale(1.04)}}
-@media(max-width:700px){.v2-experiences{padding:72px 0 85px}.v2-experiences .experiences-intro{margin-bottom:30px}.v2-experiences .experiences-intro p{font-size:15px}.experience-cards{display:block;min-height:0;padding:12px 22px}.experience-card{display:none}.experience-card.is-active{display:block;transform:none;opacity:1}.experience-card-media{aspect-ratio:.78}.experience-card-overlay{padding:82px 22px 22px}.experience-card-overlay h3{font-size:30px}.experience-card-overlay p{max-width:100%;font-size:13px}.experience-dots{margin-top:13px}}
+@media(max-width:1000px){.v2-experiences{padding:90px 0 28px}.experience-cards{gap:14px;min-height:390px}.experience-card-overlay{padding:54px 16px 17px}.experience-card-overlay h3{font-size:25px}.experience-card-overlay p{font-size:11px}.experience-card.is-active{transform:scale(1.04)}}
+@media(max-width:700px){.v2-experiences{padding:72px 0 24px}.v2-experiences .experiences-intro{margin-bottom:30px}.v2-experiences .experiences-intro p{font-size:15px}.experience-cards{display:block;min-height:0;padding:12px 22px}.experience-card{display:none}.experience-card.is-active{display:block;transform:none;opacity:1}.experience-card-media{aspect-ratio:.78}.experience-card-overlay{padding:82px 22px 22px}.experience-card-overlay h3{font-size:30px}.experience-card-overlay p{max-width:100%;font-size:13px}.experience-dots{margin-top:13px}}
 
 /* Ajuste cromático V2: Experiencias */
 .v2-experiences .experiences-intro h2{color:#000}
 .v2-experiences .experiences-intro p{color:#000}
 
 /* V2 Cambio 4: galería horizontal continua */
-.middle-gallery-section{background:#fff;padding:92px 0 105px;overflow:hidden}
+.middle-gallery-section{background:#fff;padding:32px 0 105px;overflow:hidden}
 .middle-gallery-title{margin:0 auto 38px;text-align:center;color:var(--wine);font:38px/1.05 var(--font-editorial);letter-spacing:.3px;text-transform:none}
 .middle-gallery-viewport{width:100%;overflow:hidden}
 .middle-gallery-track{display:flex;width:max-content;gap:12px;animation:middle-gallery-marquee 42s linear infinite;will-change:transform}
@@ -111,8 +111,8 @@
 .middle-gallery-link:focus-visible{outline:3px solid var(--pink);outline-offset:4px}
 .middle-gallery-viewport:hover .middle-gallery-track,.middle-gallery-viewport:focus-within .middle-gallery-track{animation-play-state:paused}
 @keyframes middle-gallery-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-50% - 6px),0,0)}}
-@media(max-width:1000px){.middle-gallery-section{padding:75px 0 85px}.middle-gallery-title{font-size:34px}.middle-gallery-track{gap:10px;animation-duration:38s}.middle-gallery-link{flex-basis:180px;height:270px}}
-@media(max-width:700px){.middle-gallery-section{padding:62px 0 72px}.middle-gallery-title{font-size:31px;margin-bottom:28px;padding:0 20px}.middle-gallery-track{gap:8px;animation-duration:34s}.middle-gallery-link{flex-basis:145px;height:220px}}
+@media(max-width:1000px){.middle-gallery-section{padding:28px 0 85px}.middle-gallery-title{font-size:34px}.middle-gallery-track{gap:10px;animation-duration:38s}.middle-gallery-link{flex-basis:180px;height:270px}}
+@media(max-width:700px){.middle-gallery-section{padding:24px 0 72px}.middle-gallery-title{font-size:31px;margin-bottom:28px;padding:0 20px}.middle-gallery-track{gap:8px;animation-duration:34s}.middle-gallery-link{flex-basis:145px;height:220px}}
 @media(prefers-reduced-motion:reduce){.middle-gallery-track{animation:none;transform:none}.middle-gallery-viewport{overflow-x:auto;overscroll-behavior-x:contain}}
 .contact-copy p{font-family:"neue-haas-grotesk-display","Neue Haas Grotesk Display Pro",Arial,sans-serif;color:#000}.contact-copy .button-arrow{display:grid;place-items:center;width:44px;height:44px;flex:0 0 44px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 2px #fff;font:25px/1 var(--body);color:#fff}/* Contact section typography and split CTA */
 .contact-copy p{font-family:"neue-haas-grotesk-display","Neue Haas Grotesk Display Pro",Arial,sans-serif;font-size:20px;font-weight:400;line-height:1.4;letter-spacing:normal;color:#000;max-width:560px;margin:24px auto 38px}
@@ -433,4 +433,29 @@ body { padding-top: 96px; }
 /* Responsive audit: slow the middle gallery on small screens without changing desktop timing. */
 @media (max-width: 700px) {
   .middle-gallery-track { animation-duration: 68s; }
+}
+
+/* V3: escala uniforme de espacios exteriores de títulos, sin alterar su interlineado. */
+:root {
+  --title-section-space: 64px;
+  --title-content-space: 24px;
+}
+.land { padding-top: var(--title-section-space); }
+.v2-experiences { padding-top: var(--title-section-space); }
+.future { padding-top: var(--title-section-space); }
+.contact { padding-top: var(--title-section-space); }
+.land .intro > h2:last-of-type,
+.v2-experiences .experiences-intro > h2:last-of-type,
+.future .intro > h2:last-of-type,
+.middle-gallery-title,
+.v3-title-contact { margin-bottom: var(--title-content-space); }
+@media (max-width: 1000px) {
+  :root { --title-section-space: 56px; }
+}
+@media (max-width: 700px) {
+  :root { --title-section-space: 48px; --title-content-space: 20px; }
+  .land { padding-top: var(--title-section-space); }
+  .v2-experiences { padding-top: var(--title-section-space); }
+  .future { padding-top: var(--title-section-space); }
+  .contact { padding-top: var(--title-section-space); }
 }
