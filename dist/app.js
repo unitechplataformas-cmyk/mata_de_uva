@@ -211,3 +211,56 @@ if (aboutCarousel) {
   aboutCarousel.addEventListener('mouseleave', restartAboutTimer);
   restartAboutTimer();
 }
+
+// Microinteracciones progresivas: se añaden sobre la estructura existente y
+// dejan todo el contenido visible si JavaScript no está disponible.
+const motionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+document.documentElement.classList.add('js-animations');
+
+const reveal = (elements, delayStep = 70) => {
+  [...elements].forEach((element, index) => {
+    if (!element || element.dataset.revealReady) return;
+    element.dataset.revealReady = 'true';
+    element.dataset.reveal = 'up';
+    element.style.setProperty('--reveal-delay', `${index * delayStep}ms`);
+  });
+};
+
+reveal(document.querySelectorAll('.hero-content > .eyebrow, .hero-content > h1, .hero-content > .button'), 100);
+reveal(document.querySelectorAll('.landscape'), 0);
+reveal(document.querySelectorAll('.about-slide-overlay h2, .about-slide-overlay p'), 90);
+reveal(document.querySelectorAll('.experiences-intro > *, .experience-card'), 80);
+reveal(document.querySelectorAll('.middle-gallery-title, .middle-gallery-link'), 35);
+reveal(document.querySelectorAll('.future .intro > *'), 90);
+reveal(document.querySelectorAll('.contact-map, .contact-copy > *'), 80);
+reveal(document.querySelectorAll('.footer-inner > *'), 70);
+
+if (!motionMedia.matches && 'IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-revealed');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('[data-reveal-ready]').forEach(element => revealObserver.observe(element));
+} else {
+  document.querySelectorAll('[data-reveal-ready]').forEach(element => element.classList.add('is-revealed'));
+}
+
+const header = document.querySelector('.header');
+let scrollFrame = 0;
+const updateScrollEffects = () => {
+  scrollFrame = 0;
+  const y = window.scrollY || 0;
+  header?.classList.toggle('is-scrolled', y > 12);
+  const hero = document.querySelector('.hero');
+  if (hero && !motionMedia.matches) {
+    const progress = Math.min(Math.max(y / Math.max(hero.offsetHeight, 1), 0), 1);
+    hero.style.setProperty('--hero-scale', (1 + progress * 0.035).toFixed(4));
+  }
+};
+window.addEventListener('scroll', () => {
+  if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateScrollEffects);
+}, { passive: true });
+updateScrollEffects();

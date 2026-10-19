@@ -1,6 +1,6 @@
 # Mata de Uva
 
-Sitio estático responsive basado en la referencia completa `C:\cs\docs\WEB_MDU_02.pdf` (una página vertical de 1920 × 7002.83 puntos). No requiere instalación ni compilación. Abrir `dist/index.html` o servir `dist` con un servidor HTTP.
+Sitio estático responsive basado en las referencias de `..\docs\` (una página vertical de 1920 × 7002.83 puntos). El código fuente está en esta carpeta; `dist/` es la salida generada. Ejecutar `npm run build` y servir `dist` con un servidor HTTP.
 
 ## Archivos
 

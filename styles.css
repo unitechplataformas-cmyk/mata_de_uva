@@ -368,9 +368,12 @@ body { padding-top: 96px; }
 .contact-map .map-link span { font-size: 16px; line-height: 1; text-decoration: none; }
 .contact-map .map-link:hover { color: var(--pink); }
 
-/* Estandarización tipográfica V3 aprobada: títulos editoriales. */
-:root { --title-size-v3: 38.5px; --title-leading-v3: 39.2px; }
-.hero h1,
+/* Estandarización tipográfica V3 aprobada: títulos editoriales (el Hero conserva su jerarquía propia). */
+:root {
+  --title-size-v3: 38.5px;
+  --title-leading-v3: 39.2px;
+  --title-weight-v3: 400;
+}
 .land .v3-title-kicker,
 .land .v3-title-subtitle,
 .about-slide-overlay h2,
@@ -384,8 +387,79 @@ body { padding-top: 96px; }
 .v3-title-contact,
 .story-overlay h3,
 .floating-info-panel h2 {
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif;
   font-size: var(--title-size-v3);
   line-height: var(--title-leading-v3);
+  font-weight: var(--title-weight-v3);
+  font-style: normal;
+}
+/* Los encabezados independientes de dos líneas no añaden un margen entre líneas. */
+.land .intro > h2,
+.v2-experiences .experiences-intro > h2,
+.future .intro > h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.land .intro > h2:last-of-type,
+.v2-experiences .experiences-intro > h2:last-of-type,
+.future .intro > h2:last-of-type {
+  margin-bottom: 22px;
+}/* Microinteracciones V3: movimiento sutil, sin alterar el layout original. */
+.js-animations [data-reveal-ready] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity .7s ease var(--reveal-delay, 0ms), transform .7s cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0ms);
+}
+.js-animations [data-reveal-ready].is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.hero-slides { transform: scale(var(--hero-scale, 1)); transform-origin: center center; transition: transform .2s linear; }
+.wave-bottom { filter: drop-shadow(0 -4px 8px rgba(63, 5, 41, .13)); }
+.header { box-shadow: 0 4px 14px rgba(63, 5, 41, .08); transition: box-shadow .3s ease; }
+.header.is-scrolled { box-shadow: 0 7px 20px rgba(63, 5, 41, .14); }
+nav a { transition: color .2s ease, opacity .2s ease; }
+nav a:hover { opacity: .78; }
+.landscape { box-shadow: 0 14px 30px rgba(63, 5, 41, .15); }
+.experience-card-media { box-shadow: 0 10px 24px rgba(63, 5, 41, .12); }
+.experience-card-image { transition: opacity 1.2s ease-in-out, transform .8s cubic-bezier(.22, 1, .36, 1); }
+.experience-card:hover .experience-card-image.is-active,
+.experience-card:focus-within .experience-card-image.is-active { transform: scale(1.025); }
+.middle-gallery-link { overflow: hidden; }
+.middle-gallery-link img { transition: transform .9s cubic-bezier(.22, 1, .36, 1); }
+.middle-gallery-link:hover img, .middle-gallery-link:focus-visible img { transform: scale(1.035); }
+.about-slide.is-active > img { transform: scale(1.018); transition: transform 1.4s ease; }
+.contact-map, .contact-copy .button { transition: box-shadow .3s ease, transform .3s ease; }
+.contact-copy .button:hover { box-shadow: 0 8px 18px rgba(201, 26, 109, .2); }
+@media (prefers-reduced-motion: reduce) {
+  .js-animations [data-reveal-ready] { opacity: 1; transform: none; transition: none; }
+  .hero-slides, .about-slide.is-active > img { transform: none; transition: none; }
+  .middle-gallery-link img, .experience-card-image { transition: none; }
+}
+
+
+/* Responsive audit: slow the middle gallery on small screens without changing desktop timing. */
+@media (max-width: 700px) {
+  .middle-gallery-track { animation-duration: 68s; }
+}
+
+
+/* Resolve legacy weight overrides on the paired section headings. */
+.v2-experiences .experiences-intro > .v3-title-kicker,
+.future .intro > .v3-title-kicker,
+.future .intro > h2#future-title {
+  font-weight: var(--title-weight-v3);
+  font-style: normal;
+}
+
+
+/* Bind the real regular file to the editorial family used by V3 titles. */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('assets/cormorant-regular.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
 }
 
 
