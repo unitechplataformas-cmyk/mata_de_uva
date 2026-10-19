@@ -404,39 +404,7 @@ body { padding-top: 96px; }
 .v2-experiences .experiences-intro > h2:last-of-type,
 .future .intro > h2:last-of-type {
   margin-bottom: 22px;
-}/* Microinteracciones V3: movimiento sutil, sin alterar el layout original. */
-.js-animations [data-reveal-ready] {
-  opacity: 0;
-  transform: translate3d(0, 18px, 0);
-  transition: opacity .7s ease var(--reveal-delay, 0ms), transform .7s cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0ms);
 }
-.js-animations [data-reveal-ready].is-revealed {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-.hero-slides { transform: scale(var(--hero-scale, 1)); transform-origin: center center; transition: transform .2s linear; }
-.header { box-shadow: 0 4px 14px rgba(63, 5, 41, .08); transition: box-shadow .3s ease; }
-.header.is-scrolled { box-shadow: 0 7px 20px rgba(63, 5, 41, .14); }
-nav a { transition: color .2s ease, opacity .2s ease; }
-nav a:hover { opacity: .78; }
-.landscape { box-shadow: 0 14px 30px rgba(63, 5, 41, .15); }
-.experience-card-media { box-shadow: 0 10px 24px rgba(63, 5, 41, .12); }
-.experience-card-image { transition: opacity 1.2s ease-in-out, transform .8s cubic-bezier(.22, 1, .36, 1); }
-.experience-card:hover .experience-card-image.is-active,
-.experience-card:focus-within .experience-card-image.is-active { transform: scale(1.025); }
-.middle-gallery-link { overflow: hidden; }
-.middle-gallery-link img { transition: transform .9s cubic-bezier(.22, 1, .36, 1); }
-.middle-gallery-link:hover img, .middle-gallery-link:focus-visible img { transform: scale(1.035); }
-.about-slide.is-active > img { transform: scale(1.018); transition: transform 1.4s ease; }
-.contact-map, .contact-copy .button { transition: box-shadow .3s ease, transform .3s ease; }
-.contact-copy .button:hover { box-shadow: 0 8px 18px rgba(201, 26, 109, .2); }
-@media (prefers-reduced-motion: reduce) {
-  .js-animations [data-reveal-ready] { opacity: 1; transform: none; transition: none; }
-  .hero-slides, .about-slide.is-active > img { transform: none; transition: none; }
-  .middle-gallery-link img, .experience-card-image { transition: none; }
-}
-
-
 /* Responsive audit: slow the middle gallery on small screens without changing desktop timing. */
 @media (max-width: 700px) {
   .middle-gallery-track { animation-duration: 68s; }
@@ -466,38 +434,3 @@ nav a:hover { opacity: .78; }
 @media (max-width: 700px) {
   .middle-gallery-track { animation-duration: 68s; }
 }
-
-
-/* V3: curtain reveal entre el Hero y La Tierra. La sección conserva su flujo original;
-   solo se recorta progresivamente desde una elipse blanca al desplazarse. */
-:root { --curtain-distance: 220px; }
-.has-curtain .land {
-  position: relative;
-  z-index: 1;
-  margin-top: calc(var(--curtain-distance) * -1);
-  padding-top: calc(48px + var(--curtain-distance));
-  clip-path: ellipse(150% var(--curtain-height, 1px) at 50% 100%);
-  will-change: clip-path;
-}
-@media (max-width: 700px) {
-  .has-curtain .land {
-    padding-top: calc(48px + var(--curtain-distance));
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .has-curtain .land {
-    margin-top: 0;
-    padding-top: 48px;
-    clip-path: none;
-    will-change: auto;
-  }
-}
-
-.has-curtain .hero {
-  transform: translateY(var(--hero-hold, 0px));
-  transform-origin: center top;
-}
-@media (prefers-reduced-motion: reduce) {
-  .has-curtain .hero { transform: none; }
-}
-.has-curtain .land { background: #fff; }
