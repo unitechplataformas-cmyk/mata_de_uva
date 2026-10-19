@@ -249,18 +249,42 @@ if (!motionMedia.matches && 'IntersectionObserver' in window) {
 }
 
 const header = document.querySelector('.header');
+const hero = document.querySelector('.hero');
+const curtainSection = document.querySelector('.land');
+const curtainSupported = Boolean(
+  curtainSection &&
+  !motionMedia.matches &&
+  window.CSS &&
+  CSS.supports('clip-path', 'ellipse(150% 100px at 50% 100%)')
+);
+if (curtainSupported) document.documentElement.classList.add('has-curtain');
+
 let scrollFrame = 0;
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 const updateScrollEffects = () => {
   scrollFrame = 0;
   const y = window.scrollY || 0;
   header?.classList.toggle('is-scrolled', y > 12);
-  const hero = document.querySelector('.hero');
+
+  const distance = window.innerWidth <= 700
+    ? 150
+    : clamp(window.innerHeight * 0.28, 180, 260);
+
   if (hero && !motionMedia.matches) {
-    const progress = Math.min(Math.max(y / Math.max(hero.offsetHeight, 1), 0), 1);
+    const progress = clamp(y / Math.max(hero.offsetHeight, 1), 0, 1);
     hero.style.setProperty('--hero-scale', (1 + progress * 0.035).toFixed(4));
+    hero.style.setProperty('--hero-hold', `${Math.min(y, distance)}px`);
+  }
+
+  if (curtainSupported) {
+    curtainSection.style.setProperty('--curtain-distance', `${distance}px`);
+    const progress = clamp(y / distance, 0, 1);
+    const revealHeight = Math.max(1, (curtainSection.offsetHeight + distance) * progress);
+    curtainSection.style.setProperty('--curtain-height', `${revealHeight}px`);
   }
 };
 window.addEventListener('scroll', () => {
   if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateScrollEffects);
 }, { passive: true });
+window.addEventListener('resize', updateScrollEffects, { passive: true });
 updateScrollEffects();
