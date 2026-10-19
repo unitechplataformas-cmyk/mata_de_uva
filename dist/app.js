@@ -211,4 +211,3 @@ if (aboutCarousel) {
   aboutCarousel.addEventListener('mouseleave', restartAboutTimer);
   restartAboutTimer();
 }
-

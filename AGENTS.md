@@ -6,3 +6,7 @@
 - Los títulos manuscritos aprobados como imágenes (por ejemplo, `assets/historia-white.png` y `assets/visita.png`) no se sustituyen por fuentes.
 - La sección `La historia / APENAS COMIENZA` está aprobada: no cambiar sus tipografías, tamaños, colores, espaciados, botellas ni distribución sin una solicitud explícita.
 - Los botones pueden conservar su tipografía editorial propia cuando el mockup lo indique.
+- `WEB_MDU_3.pdf` es la referencia oficial vigente; V3 prevalece sobre V2 cuando exista una diferencia.
+- Las fuentes y recursos tipográficos deben respetar sus licencias de uso.
+- Todo cambio V3 se implementa y verifica primero en local; no se publica sin autorización expresa.
+- El dominio oficial de producción es `https://www.matadeuva.com/`.
