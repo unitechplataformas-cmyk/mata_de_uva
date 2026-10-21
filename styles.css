@@ -581,3 +581,138 @@ body:not(.events-page){padding-top:104px}
 @media(max-width:1000px){.events-page .events-hero-copy{width:min(560px,calc(100% - 112px))}.events-page .events-hero h1{max-width:560px}}
 @media(max-width:700px){.events-page .events-hero-copy{width:calc(100% - 40px)}.events-page .events-hero h1{max-width:none}.events-page .events-hero-title-break{display:none}}
 .events-page .events-space-title{text-transform:none}
+
+/* El Viñedo V3 */
+.vineyard-page{font-family:"Avenir LT Pro",Arial,sans-serif;color:#3f2332;background:#fff}
+.vineyard-page h1,.vineyard-page h2,.vineyard-page p{margin:0}
+.vineyard-page h1,.vineyard-page h2{font-family:var(--font-editorial);font-weight:400;line-height:1.04}
+.vineyard-hero{position:relative;min-height:650px;display:flex;align-items:center;overflow:hidden;color:#fff}
+.vineyard-hero>img,.vineyard-hero-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vineyard-hero>img{object-position:center 58%}
+.vineyard-hero-overlay{background:linear-gradient(90deg,rgba(41,8,27,.76),rgba(65,16,40,.25))}
+.vineyard-hero-copy{position:relative;z-index:1;width:min(620px,calc(100% - 96px));margin-inline:max(48px,calc((100% - 1320px)/2));padding:90px 0 55px}
+.vineyard-kicker{text-transform:uppercase;color:#fff;font-size:13px;letter-spacing:1.2px;margin-bottom:16px!important}
+.vineyard-hero h1{font-size:clamp(48px,5vw,78px);line-height:.98;margin-bottom:24px}
+.vineyard-hero h1 em{font-style:italic}
+.vineyard-hero-copy>p:not(.vineyard-kicker){max-width:520px;font-size:17px;line-height:1.45}
+.vineyard-actions{display:flex;gap:20px;flex-wrap:wrap;margin-top:28px}
+.vineyard-page .events-hero-button{background:transparent;padding:0;gap:0;border-radius:0;margin-top:0}
+.vineyard-page .events-hero-button .events-button-label{display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;min-height:45px;flex:0 0 auto;padding:0 20px;border-radius:9999px;background:#ce1970;color:#fff;white-space:nowrap}
+.vineyard-page .events-hero-button .events-button-arrow{display:grid;place-items:center;width:45px;height:45px;border-radius:50%;background:#ce1970;color:#fff;font-size:20px;line-height:1}
+.vineyard-explorer{background:#f5e5c9;padding:98px max(48px,calc((100% - 1320px)/2)) 125px}
+.vineyard-explorer-intro{text-align:center;max-width:760px;margin:0 auto 36px;color:#3f2332}
+.vineyard-explorer-intro .events-kicker{color:#b52669}
+.vineyard-explorer-intro h2{font-size:clamp(38px,3.6vw,58px);color:#b52669;margin-bottom:14px}
+.vineyard-explorer-intro>p:not(.events-kicker){font-size:16px;line-height:1.45}
+.vineyard-tabs{display:flex;justify-content:center;gap:0;margin:0 auto 60px;border-bottom:1px solid #c987a3;max-width:920px}
+.vineyard-tabs button{appearance:none;border:0;background:transparent;color:#6a2a45;cursor:pointer;padding:16px 24px 14px;font:16px "Avenir LT Pro",Arial,sans-serif;text-transform:uppercase;letter-spacing:.8px;position:relative}
+.vineyard-tabs button:after{content:"";position:absolute;left:24px;right:24px;bottom:-1px;height:3px;background:#d31a70;transform:scaleX(0);transition:transform .2s}
+.vineyard-tabs button.is-active,.vineyard-tabs button:hover{color:#d31a70}
+.vineyard-tabs button.is-active:after{transform:scaleX(1)}
+.vineyard-panel{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:center;gap:82px;max-width:1320px;margin:0 auto}
+.vineyard-panel-copy{max-width:560px}
+.vineyard-panel-copy .events-kicker{color:#b52669}
+.vineyard-panel-copy h2{font-size:clamp(42px,4vw,64px);color:#b52669;margin-bottom:22px}
+.vineyard-panel-copy>p:not(.events-kicker){font-size:16px;line-height:1.5;color:#33242b}
+.vineyard-panel-copy .events-button{margin-top:28px}
+.vineyard-gallery{position:relative;min-width:0}
+.vineyard-gallery figure{margin:0}
+.vineyard-gallery img{display:block;width:100%;height:clamp(360px,39vw,590px);object-fit:cover;object-position:center;border-radius:2px;box-shadow:0 3px 12px #2c132225;opacity:1;transition:opacity .9s ease}
+.vineyard-gallery img.is-changing{opacity:.12}
+.vineyard-gallery figcaption{font-size:12px;color:#7b4b61;text-align:right;margin-top:10px}
+.vineyard-progress{font:13px "Avenir LT Pro",Arial,sans-serif;color:#b52669;letter-spacing:.8px;margin-top:8px;text-align:right}
+@media(prefers-reduced-motion:reduce){.vineyard-gallery img,.vineyard-tabs button:after{transition:none}}
+@media(max-width:1000px){.vineyard-hero{min-height:590px}.vineyard-hero-copy{margin-left:56px;width:min(580px,calc(100% - 112px))}.vineyard-explorer{padding-inline:56px}.vineyard-panel{gap:42px}.vineyard-tabs button{padding-inline:14px}.vineyard-tabs button:after{left:14px;right:14px}}
+@media(max-width:700px){.vineyard-hero{min-height:650px}.vineyard-hero-copy{width:calc(100% - 40px);margin:auto;padding-top:105px}.vineyard-hero h1{font-size:46px}.vineyard-hero-copy>p:not(.vineyard-kicker){font-size:15px}.vineyard-actions{gap:12px}.vineyard-page .events-hero-button .events-button-label{min-height:43px;padding-inline:18px}.vineyard-page .events-hero-button .events-button-arrow{width:43px;height:43px}.vineyard-explorer{padding:70px 20px 86px}.vineyard-tabs{justify-content:flex-start;overflow-x:auto;margin-bottom:44px}.vineyard-tabs button{flex:0 0 auto;padding-inline:14px;font-size:12px}.vineyard-tabs button:after{left:14px;right:14px}.vineyard-panel{display:flex;flex-direction:column;align-items:stretch;gap:38px}.vineyard-panel-copy{max-width:none}.vineyard-panel-copy h2{font-size:43px}.vineyard-gallery img{height:clamp(330px,110vw,520px)}}
+
+/* Composición fotográfica de El Viñedo según los mockups */
+.vineyard-explorer.is-magenta{background:#971353;color:#fff}
+.vineyard-explorer.is-magenta .vineyard-explorer-intro,.vineyard-explorer.is-magenta .vineyard-explorer-intro h2,.vineyard-explorer.is-magenta .vineyard-panel-copy h2,.vineyard-explorer.is-magenta .vineyard-panel-copy>p:not(.events-kicker){color:#fff}
+.vineyard-explorer.is-magenta .vineyard-explorer-intro .events-kicker,.vineyard-explorer.is-magenta .vineyard-panel-copy .events-kicker,.vineyard-explorer.is-magenta .vineyard-progress,.vineyard-explorer.is-magenta .vineyard-gallery figcaption{color:#fff}
+.vineyard-explorer.is-magenta .vineyard-tabs{border-color:#e6a4bd}
+.vineyard-explorer.is-magenta .vineyard-tabs button{color:#fff}
+.vineyard-explorer.is-magenta .vineyard-tabs button.is-active,.vineyard-explorer.is-magenta .vineyard-tabs button:hover{color:#ffd8e8}
+.vineyard-gallery{position:relative;display:grid;grid-template-columns:30px minmax(0,1fr) 30px;column-gap:16px;align-items:center;min-width:0}
+.vineyard-gallery-grid{min-width:0}
+.vineyard-gallery-main{margin:0}
+.vineyard-gallery-main img{height:clamp(260px,25vw,420px);aspect-ratio:1.48;object-fit:cover;object-position:center;transition:opacity .9s ease}
+.vineyard-gallery-main figcaption{font-size:12px;color:#7b4b61;text-align:right;margin-top:8px}
+.vineyard-gallery-thumbs{display:grid;grid-template-columns:.8fr .8fr 1.45fr;gap:18px;margin-top:18px}
+.vineyard-gallery-thumbs img{width:100%;height:clamp(150px,17vw,260px);object-fit:cover;object-position:center;box-shadow:0 3px 10px #2c132225;transition:opacity .9s ease}
+.vineyard-gallery-main img.is-changing,.vineyard-gallery-thumbs img.is-changing{opacity:.12}
+.vineyard-gallery-arrow{appearance:none;border:0;background:none;color:#d31a70;font:54px/1 Georgia,serif;cursor:pointer;padding:0;align-self:center}
+.vineyard-explorer.is-magenta .vineyard-gallery-arrow{color:#fff}
+.vineyard-gallery-arrow:focus-visible{outline:3px solid currentColor;outline-offset:6px}
+.vineyard-gallery .vineyard-progress{grid-column:2;text-align:right;font:13px "Avenir LT Pro",Arial,sans-serif;color:#b52669;letter-spacing:.8px;margin-top:10px}
+@media(max-width:700px){.vineyard-gallery{grid-template-columns:22px minmax(0,1fr) 22px;column-gap:6px}.vineyard-gallery-main img{height:clamp(230px,58vw,360px)}.vineyard-gallery-thumbs{gap:8px;margin-top:10px}.vineyard-gallery-thumbs img{height:clamp(100px,27vw,180px)}.vineyard-gallery-arrow{font-size:40px}.vineyard-gallery .vineyard-progress{grid-column:2}}
+
+/* El Viñedo: composición aprobada, fondo beige en todas las categorías */
+.vineyard-explorer.is-magenta{background:#f5e5c9;color:#3f2332}
+
+
+/* El Viñedo: composición fiel al mockup, imagen y texto en la fila superior */
+.vineyard-explorer{background:#fff;color:#33242b;padding-top:92px}
+.vineyard-explorer.is-magenta{background:#971353;color:#fff}
+.vineyard-explorer.is-beige{background:#f5e5c9;color:#33242b}
+.vineyard-explorer.is-magenta .vineyard-panel-copy>p:not(.events-kicker),
+.vineyard-explorer.is-magenta .vineyard-panel-copy h2,
+.vineyard-explorer.is-magenta .vineyard-panel-copy .events-kicker{color:#fff}
+.vineyard-panel{display:block;max-width:1320px;margin:0 auto}
+.vineyard-gallery{position:relative;display:block;min-width:0;padding:0 46px}
+.vineyard-gallery-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 42px;align-items:start}
+.vineyard-gallery-main{margin:0;min-width:0}
+.vineyard-gallery-main img{height:clamp(300px,25vw,420px);aspect-ratio:1.48;object-fit:cover;object-position:center}
+.vineyard-panel-copy{max-width:560px;padding-top:24px;align-self:start}
+.vineyard-panel-copy h2{margin:10px 0 22px}
+.vineyard-panel-copy>p:not(.events-kicker){max-width:520px}
+.vineyard-gallery-thumbs{grid-column:1 / -1;display:grid;grid-template-columns:.8fr .8fr 1.45fr;gap:18px;margin-top:0}
+.vineyard-gallery-thumbs img{height:clamp(180px,20vw,300px);object-fit:cover;object-position:center}
+.vineyard-gallery-arrow{position:absolute;top:48%;z-index:2}
+.vineyard-gallery-prev{left:0}.vineyard-gallery-next{right:0}
+@media(max-width:700px){
+ .vineyard-explorer{padding:68px 20px 86px}
+ .vineyard-gallery{padding:0 28px}
+ .vineyard-gallery-grid{grid-template-columns:1fr;gap:24px}
+ .vineyard-panel-copy{padding-top:0;max-width:none;grid-row:1}
+ .vineyard-gallery-main{grid-row:2}
+ .vineyard-gallery-thumbs{grid-column:1;grid-row:3;grid-template-columns:.8fr .8fr 1.45fr;gap:8px}
+ .vineyard-gallery-main img{height:clamp(230px,58vw,360px)}
+ .vineyard-gallery-thumbs img{height:clamp(110px,28vw,180px)}
+ .vineyard-gallery-arrow{top:44%;font-size:40px}
+}
+
+/* Secciones finales de El Viñedo según MDU WEB_VIÑEDO_01 */
+.vineyard-visit{background:#971353;color:#fff;text-align:center;padding:78px 24px 72px}
+.vineyard-visit-inner{max-width:980px;margin:0 auto}
+.vineyard-visit-kicker{font:14px "Avenir LT Pro",Arial,sans-serif;letter-spacing:1px;margin:0 0 18px}
+.vineyard-visit h2{font-size:clamp(38px,4vw,56px);font-weight:400;margin:0 0 18px;color:#fff}
+.vineyard-visit p{font:16px/1.45 "Avenir LT Pro",Arial,sans-serif;margin:0 auto 22px;color:#fff}
+.vineyard-visit-button{display:inline-flex;align-items:center;gap:0;margin-top:14px;background:#fff;color:#b0185e;border-radius:999px;padding:12px 12px 12px 28px;font:14px "Avenir LT Pro",Arial,sans-serif;text-decoration:none}
+.vineyard-visit-button span:last-child{display:grid;place-items:center;width:30px;height:30px;margin-left:14px;border-radius:50%;background:#fff;color:#b0185e;font-size:21px;line-height:1}
+.vineyard-links{display:grid;grid-template-columns:repeat(3,1fr);max-width:1180px;margin:0 auto;padding:74px 40px 78px;background:#fff;color:#971353}
+.vineyard-link-card{display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;color:#971353;padding:0 34px;border-right:1px solid #dba5bc}
+.vineyard-link-card:last-child{border-right:0}
+.vineyard-link-card img{width:62px;height:62px;object-fit:contain;margin-bottom:20px}
+.vineyard-link-card h2{font-size:28px;font-weight:400;margin:0 0 12px;color:#971353}
+.vineyard-link-card p{font:16px/1.4 "Avenir LT Pro",Arial,sans-serif;color:#3f2332;margin:0 0 18px}
+.vineyard-link-card span{font:14px "Avenir LT Pro",Arial,sans-serif;color:#c21c6c}
+.vineyard-link-card b{font-size:20px;font-weight:400;margin-left:8px}
+@media(max-width:700px){
+ .vineyard-visit{padding:62px 20px 58px}
+ .vineyard-visit h2{font-size:39px}
+ .vineyard-visit p{font-size:15px}
+ .vineyard-links{grid-template-columns:1fr;padding:52px 20px}
+ .vineyard-link-card{border-right:0;border-bottom:1px solid #dba5bc;padding:0 0 34px;margin-bottom:34px}
+ .vineyard-link-card:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+}
+
+/* Tipografía editorial exclusiva de El Viñedo (sin alterar header ni footer) */
+.vineyard-page main h1,
+.vineyard-page main h2{font-family:"Cormorant Garamond",Cormorant,Georgia,serif;font-weight:400;font-style:normal;text-transform:none}
+.vineyard-page main p,
+.vineyard-page main .vineyard-visit-button,
+.vineyard-page main .vineyard-link-card span{font-family:"Avenir LT Pro",Arial,sans-serif;font-weight:400}
+.vineyard-page main .vineyard-kicker,
+.vineyard-page main .events-kicker,
+.vineyard-page main .vineyard-visit-kicker{text-transform:uppercase}
+.vineyard-page main h1 em{font-style:italic;font-weight:400}
