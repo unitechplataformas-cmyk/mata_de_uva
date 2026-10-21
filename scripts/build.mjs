@@ -12,6 +12,7 @@ for (const file of ["index.html", "styles.css", "app.js"]) {
   copyFileSync(resolve(root, file), resolve(dist, file));
 }
 cpSync(resolve(root, "assets"), resolve(dist, "assets"), { recursive: true });
+cpSync(resolve(root, "eventos"), resolve(dist, "eventos"), { recursive: true });
 
 const required = ["index.html", "styles.css", "app.js", "assets/CormorantGaramond-Medium.ttf"];
 const missing = required.filter((file) => !existsSync(resolve(dist, file)));
