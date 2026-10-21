@@ -15,6 +15,7 @@ cpSync(resolve(root, "assets"), resolve(dist, "assets"), { recursive: true });
 cpSync(resolve(root, "eventos"), resolve(dist, "eventos"), { recursive: true });
 cpSync(resolve(root, "el-vinedo"), resolve(dist, "el-vinedo"), { recursive: true });
 cpSync(resolve(root, "nosotros"), resolve(dist, "nosotros"), { recursive: true });
+cpSync(resolve(root, "experiencias"), resolve(dist, "experiencias"), { recursive: true });
 
 const required = ["index.html", "styles.css", "app.js", "assets/CormorantGaramond-Medium.ttf"];
 const missing = required.filter((file) => !existsSync(resolve(dist, file)));
@@ -29,3 +30,5 @@ for (const file of required) {
   }
 }
 console.log(`Static build verified: ${dist}`);
+
+
