@@ -211,3 +211,54 @@ if (aboutCarousel) {
   aboutCarousel.addEventListener('mouseleave', restartAboutTimer);
   restartAboutTimer();
 }
+
+// Nuestro Sello: la información cambia al pasar el cursor, tocar o enfocar una botella.
+const bottleButtons = [...document.querySelectorAll('.nosotros-bottle[data-bottle]')];
+const bottleCopy = document.querySelector('[data-bottle-copy]');
+if (bottleButtons.length && bottleCopy) {
+  const bottleContent = {
+    quebranto: {
+      label: 'Rosado',
+      title: 'Quebranto',
+      text: 'Elaborado a partir de uvas tintas con un contacto limitado con sus pieles, ofrece un punto intermedio entre la expresión frutal de los tintos y la ligereza de los blancos.'
+    },
+    '1524': {
+      label: 'Tinto',
+      title: '1524',
+      text: 'Elaborado a partir de uvas tintas, el vino tinto obtiene su color y buena parte de su estructura del contacto con las pieles durante su elaboración. Puede ofrecer aromas frutales, taninos y una gran variedad de matices según las uvas y el proceso.'
+    },
+    'segundo-aire': {
+      label: 'Blanco',
+      title: 'Segundo Aire',
+      text: 'Los vinos blancos se caracterizan por su frescura y sus aromas, que pueden recordar a frutas, flores o notas cítricas. Suelen ser una opción ligera y versátil, ideal para acompañar distintos momentos y comidas.'
+    },
+    'fondo-de-tierra': {
+      label: 'Ensamble de uvas',
+      title: 'Fondo de tierra',
+      text: 'Un ensamble combina dos o más variedades de uva para crear un vino con identidad propia. Cada variedad aporta características distintas, buscando equilibrio y complejidad en el resultado final.'
+    }
+  };
+  let activeBottle = bottleButtons.find(button => button.classList.contains('is-active'))?.dataset.bottle || 'segundo-aire';
+  const renderBottle = key => {
+    const content = bottleContent[key];
+    if (!content || key === activeBottle) return;
+    activeBottle = key;
+    bottleCopy.classList.add('is-changing');
+    bottleButtons.forEach(button => {
+      const selected = button.dataset.bottle === key;
+      button.classList.toggle('is-active', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+    window.setTimeout(() => {
+      bottleCopy.querySelector('.nosotros-kicker').textContent = content.label;
+      bottleCopy.querySelector('h3').textContent = content.title;
+      bottleCopy.querySelector(':scope > p:last-child').textContent = content.text;
+      bottleCopy.classList.remove('is-changing');
+    }, 180);
+  };
+  bottleButtons.forEach(button => {
+    button.addEventListener('mouseenter', () => renderBottle(button.dataset.bottle));
+    button.addEventListener('focus', () => renderBottle(button.dataset.bottle));
+    button.addEventListener('click', () => renderBottle(button.dataset.bottle));
+  });
+}
