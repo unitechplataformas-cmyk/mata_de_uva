@@ -459,6 +459,7 @@ body { padding-top: 96px; }
   .future { padding-top: var(--title-section-space); }
   .contact { padding-top: var(--title-section-space); }
 }
+
 /* Eventos V3: página editorial basada en EVENTOS_WEB.pdf. */
 @font-face{font-family:"Avenir LT Pro";src:url("assets/avenir-lt-pro-book.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Avenir LT Pro";src:url("assets/avenir-lt-pro-medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
@@ -859,3 +860,243 @@ body:not(.events-page){padding-top:104px}
 .contacto-page .contacto-map-wrap{width:100%;box-sizing:border-box;background:#fff}
 .contacto-page .contacto-map{background:#fff}
 @media(max-width:800px){.contacto-page .contacto-directo{padding-left:24px;padding-right:24px}}
+
+/* Home V3: tipografía editorial y capitalización natural según MDU WEB_HOME.pdf. */
+#contenido .land .v3-title-subtitle,
+#contenido .v2-experiences .experiences-intro > h2:not(.v3-title-kicker),
+#contenido .middle-gallery-title,
+#contenido .v3-title-contact,
+#contenido .future .intro > h2:not(.v3-title-kicker),
+#contenido .about-slide-overlay h2,
+#contenido .experience-card-overlay h3 {
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+}
+
+/* Los párrafos del Home usan la familia de texto aprobada; tamaños y espacios permanecen intactos. */
+#contenido p {
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif;
+  font-weight: 400;
+}
+/* Home V3: etiqueta editorial de la galería según el mockup. */
+.middle-gallery-kicker {
+  margin: 0 auto 4px;
+  text-align: center;
+  color: var(--wine);
+  font: 400 13px/1.3 "Avenir LT Pro", Avenir, Arial, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+/* Home V3: contacto dimensionado como el mapa del mockup, sin alterar otras secciones. */
+.contact.section {
+  width: 100%;
+  max-width: none;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.contact.section .contact-map {
+  width: 100%;
+  aspect-ratio: 1.58;
+}
+.contact.section .contact-copy .v3-title-contact {
+  font-size: clamp(28px, 2.5vw, 36px);
+  line-height: 1.02;
+}
+.contact.section .contact-copy p {
+  max-width: 360px;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 18px auto 30px;
+}
+@media (max-width: 1000px) {
+  .contact.section { width: calc(100% - 56px); gap: 40px; padding-top: 50px; padding-bottom: 50px; }
+}
+@media (max-width: 700px) {
+  .contact.section { width: calc(100% - 40px); max-width: 440px; grid-template-columns: 1fr; gap: 32px; }
+  .contact.section .contact-map { width: 100%; aspect-ratio: 1.25; }
+  .contact.section .contact-copy .v3-title-contact { font-size: 31px; }
+  .contact.section .contact-copy p { font-size: 15px; max-width: 360px; }
+}
+/* Home V3: tamaño de los identificadores editoriales según el mockup. */
+#contenido .land .v3-title-kicker,
+#contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+#contenido .future .intro > .v3-title-kicker {
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: .08em;
+  text-transform: none;
+}
+@media (max-width: 700px) {
+  #contenido .land .v3-title-kicker,
+  #contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+  #contenido .future .intro > .v3-title-kicker { font-size: 14px; }
+} 
+/* Home V3: composición tipográfica final de subtítulo, título y párrafo. */
+#contenido .land .v3-title-kicker,
+#contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+#contenido .future .intro > .v3-title-kicker {
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: none;
+}
+#contenido .land .v3-title-subtitle,
+#contenido .v2-experiences .experiences-intro > #experiences-title,
+#contenido .future .intro > #future-title {
+  font-size: 36px;
+  line-height: 1.02;
+  letter-spacing: .3px;
+}
+#contenido .land .intro > p,
+#contenido .v2-experiences .experiences-intro > p,
+#contenido .future .intro > p {
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+@media (max-width: 700px) {
+  #contenido .land .v3-title-kicker,
+  #contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+  #contenido .future .intro > .v3-title-kicker { font-size: 13px; }
+  #contenido .land .v3-title-subtitle,
+  #contenido .v2-experiences .experiences-intro > #experiences-title,
+  #contenido .future .intro > #future-title { font-size: 31px; }
+  #contenido .land .intro > p,
+  #contenido .v2-experiences .experiences-intro > p,
+  #contenido .future .intro > p { font-size: 15px; }
+} 
+/* Home V3: escala final de títulos según la comparación visual con MDU WEB_HOME.pdf. */
+#contenido .land .v3-title-kicker,
+#contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+#contenido .future .intro > .v3-title-kicker {
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: none;
+}
+#contenido .land .v3-title-subtitle,
+#contenido .v2-experiences .experiences-intro > #experiences-title,
+#contenido .future .intro > #future-title {
+  font-size: 38.5px;
+  line-height: 39.2px;
+  letter-spacing: .3px;
+}
+#contenido .land .intro > p,
+#contenido .v2-experiences .experiences-intro > p,
+#contenido .future .intro > p {
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+@media (max-width: 700px) {
+  #contenido .land .v3-title-kicker,
+  #contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+  #contenido .future .intro > .v3-title-kicker { font-size: 13px; }
+  #contenido .land .v3-title-subtitle,
+  #contenido .v2-experiences .experiences-intro > #experiences-title,
+  #contenido .future .intro > #future-title {
+    font-size: 34px;
+    line-height: 35px;
+  }
+  #contenido .land .intro > p,
+  #contenido .v2-experiences .experiences-intro > p,
+  #contenido .future .intro > p { font-size: 15px; }
+}
+/* Ajuste solicitado: subtítulos editoriales del Home a 18px. */
+#contenido .land .v3-title-kicker,
+#contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+#contenido .future .intro > .v3-title-kicker {
+  font-size: 18px;
+}
+@media (max-width: 700px) {
+  #contenido .land .v3-title-kicker,
+  #contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+  #contenido .future .intro > .v3-title-kicker { font-size: 18px; }
+}
+/* Subtítulos del Home en mayúsculas según la indicación final. */
+#contenido .land .v3-title-kicker,
+#contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+#contenido .future .intro > .v3-title-kicker {
+  text-transform: uppercase;
+}
+/* Galería Home: título en una sola línea según la referencia. */
+#contenido .middle-gallery-title {
+  max-width: none;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  #contenido .middle-gallery-title {
+    font-size: clamp(22px, 7vw, 31px);
+  }
+}
+/* Contacto Home: título y copia más próximos al mapa. */
+#contenido .contact.section .contact-copy {
+  justify-self: start;
+  text-align: left;
+  padding-left: 42px;
+}
+#contenido .contact.section .contact-copy .v3-title-contact {
+  white-space: nowrap;
+}
+#contenido .contact.section .contact-copy p {
+  margin-left: 0;
+  margin-right: 0;
+}
+@media (max-width: 700px) {
+  #contenido .contact.section .contact-copy {
+    justify-self: center;
+    text-align: center;
+    padding-left: 0;
+  }
+  #contenido .contact.section .contact-copy .v3-title-contact {
+    white-space: normal;
+  }
+  #contenido .contact.section .contact-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* El mapa funciona como enlace completo; se oculta la tarjeta visual del iframe. */
+#contenido .contact-map .map-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: transparent;
+  text-decoration: none;
+  font-size: 0;
+}
+#contenido .contact-map .map-link:hover,
+#contenido .contact-map .map-link:focus-visible {
+  color: transparent;
+  background: transparent;
+  outline: 3px solid rgba(201, 26, 109, .55);
+  outline-offset: -3px;
+}
+#contenido .contact-map .map-link span { display: none; }
+/* Contacto Home: separación visual del mapa respecto a los bordes y la copia. */
+@media (min-width: 701px) {
+  #contenido .contact.section .contact-map {
+    width: calc(100% - 64px);
+    margin-left: 32px;
+  }
+}
+@media (max-width: 700px) {
+  #contenido .contact.section .contact-map {
+    width: 100%;
+    margin-left: 0;
+  }
+}
