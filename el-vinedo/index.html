@@ -15,7 +15,7 @@
   <div class="nav-shell">
     <a class="brand" href="../#inicio" aria-label="Mata de Uva, inicio"><img src="../assets/logo-header-transparent.png" width="460" height="230" alt="Mata de Uva · Viñedo"></a>
     <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navigation"><span></span><span></span></button>
-    <nav id="navigation" class="site-nav" aria-label="Navegación principal"><a href="../#inicio">Inicio</a><a href="../nosotros/">Nosotros</a><a href="./" aria-current="page">El viñedo</a><a href="../eventos/">Eventos</a><a href="../experiencias/">Experiencias</a><a href="../#contacto">Contacto</a></nav>
+    <nav id="navigation" class="site-nav" aria-label="Navegación principal"><a href="../#inicio">Inicio</a><a href="../nosotros/">Nosotros</a><a href="./" aria-current="page">El viñedo</a><a href="../eventos/">Eventos</a><a href="../experiencias/">Experiencias</a><a href="../contacto/">Contacto</a></nav>
   </div>
 </header>
 <main id="vinedo-contenido">
@@ -75,4 +75,5 @@ function changeCategory(step){const next=(categoryKeys.indexOf(active)+step+cate
 panel.querySelector('[data-vineyard-prev]').addEventListener('click',()=>changeCategory(-1));panel.querySelector('[data-vineyard-next]').addEventListener('click',()=>changeCategory(1));render();restart();</script>
 </body>
 </html>
+
 
