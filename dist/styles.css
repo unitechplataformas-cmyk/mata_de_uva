@@ -1318,3 +1318,117 @@ body:not(.events-page){padding-top:104px}
 @media (max-width: 700px) {
   .floating-info-panel h2 { font-size: 22px; line-height: 1.1; }
 }
+
+/* Hero Nosotros: trazo bajo el bloque del título y párrafo alineado al margen izquierdo. */
+.nosotros-hero-title-wrap{display:block;width:max-content;max-width:100%}
+.nosotros-hero-title-wrap h1{margin-bottom:0}
+.nosotros-hero-title-underline{display:block;width:var(--nosotros-title-line-width,100%);height:1px;margin-top:12px;background:#fff}
+.nosotros-hero-copy>p:not(.nosotros-kicker){max-width:520px;margin-top:22px;text-align:justify;text-align-last:left;text-justify:inter-word}
+@media(max-width:800px){.nosotros-hero-title-wrap{width:max-content;max-width:100%}.nosotros-hero-title-underline{margin-top:10px}.nosotros-hero-copy>p:not(.nosotros-kicker){max-width:100%;text-align:justify;text-align-last:left}}/* El subrayado sigue el ancho shrink-to-fit del propio H1. */
+.nosotros-hero-title-wrap{display:block;width:auto;max-width:100%}
+.nosotros-hero-title-wrap h1{display:inline-block;width:auto;max-width:100%;margin-bottom:0}
+.nosotros-hero-title-wrap h1::after{content:"";display:block;width:100%;height:1px;margin-top:12px;background:#fff}
+.nosotros-hero-title-underline{display:none}
+@media(max-width:800px){.nosotros-hero-title-wrap h1::after{margin-top:10px}}
+
+/* Alineación editorial por página; el Home queda fuera de este bloque. */
+.nosotros-page .nosotros-hero-copy > p:not(.nosotros-kicker),
+.nosotros-page .nosotros-origin-copy article > p:not(.nosotros-kicker) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.nosotros-page .nosotros-passion,
+.nosotros-page .nosotros-seal,
+.nosotros-page .nosotros-know {
+  text-align: center;
+}
+.nosotros-page .nosotros-passion-copy p,
+.nosotros-page .nosotros-seal-intro,
+.nosotros-page .nosotros-know > p:not(.nosotros-kicker) {
+  text-align: center;
+}
+.vineyard-page .vineyard-hero-copy > p:not(.vineyard-kicker),
+.vineyard-page .vineyard-panel-copy > p:not(.events-kicker) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.vineyard-page .vineyard-explorer-intro,
+.vineyard-page .vineyard-visit,
+.vineyard-page .vineyard-link-card {
+  text-align: center;
+}
+.events-page .events-hero-copy > p:not(.events-kicker),
+.events-page .events-copy > p:not(.events-kicker),
+.events-page .events-gallery-copy > p:not(.events-kicker) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.events-page .events-band,
+.events-page .events-gallery-note,
+.events-page .events-back-top {
+  text-align: center;
+}
+.experiencias-page .experiencias-hero-copy > p:last-child {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.experiencias-page .experiencias-intro,
+.experiencias-page .experiencias-card,
+.experiencias-page .experiencias-events {
+  text-align: center;
+}
+.contacto-page .contacto-hero-copy > p:last-child,
+.contacto-page .contacto-directo-copy > p:not(.contacto-eyebrow),
+.contacto-page .contacto-form-copy > p:not(.contacto-eyebrow) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.contacto-page .contacto-hero-copy,
+.contacto-page .contacto-social,
+.contacto-page .contacto-map-copy {
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .nosotros-page .nosotros-hero-copy > p:not(.nosotros-kicker),
+  .nosotros-page .nosotros-origin-copy article > p:not(.nosotros-kicker),
+  .vineyard-page .vineyard-hero-copy > p:not(.vineyard-kicker),
+  .vineyard-page .vineyard-panel-copy > p:not(.events-kicker),
+  .events-page .events-hero-copy > p:not(.events-kicker),
+  .events-page .events-copy > p:not(.events-kicker),
+  .events-page .events-gallery-copy > p:not(.events-kicker),
+  .experiencias-page .experiencias-hero-copy > p:last-child,
+  .contacto-page .contacto-hero-copy > p:last-child,
+  .contacto-page .contacto-directo-copy > p:not(.contacto-eyebrow),
+  .contacto-page .contacto-form-copy > p:not(.contacto-eyebrow) {
+    text-align: left;
+    text-align-last: left;
+  }
+}
+
+/* Nuestro sello: introducción centrada y descripciones de vino justificadas. */
+.nosotros-page .nosotros-seal-intro {
+  width: min(100%, 820px);
+  margin-inline: auto;
+  text-align: center;
+}
+.nosotros-page .nosotros-wine-copy > p:not(.nosotros-kicker) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  margin-left: 0;
+  margin-right: 0;
+}
+@media (max-width: 800px) {
+  .nosotros-page .nosotros-seal-intro {
+    width: 100%;
+  }
+  .nosotros-page .nosotros-wine-copy > p:not(.nosotros-kicker) {
+    text-align: justify;
+    text-align-last: left;
+  }
+}
