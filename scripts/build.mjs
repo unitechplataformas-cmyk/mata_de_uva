@@ -1,4 +1,4 @@
-import { cpSync, copyFileSync, existsSync, mkdirSync, statSync } from "node:fs";
+import { cpSync, copyFileSync, existsSync, mkdirSync, statSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -17,6 +17,27 @@ cpSync(resolve(root, "el-vinedo"), resolve(dist, "el-vinedo"), { recursive: true
 cpSync(resolve(root, "nosotros"), resolve(dist, "nosotros"), { recursive: true });
 cpSync(resolve(root, "experiencias"), resolve(dist, "experiencias"), { recursive: true });
 cpSync(resolve(root, "contacto"), resolve(dist, "contacto"), { recursive: true });
+
+// The floating contact rail is a single shared component. Inject it into every
+// internal page during the build so all routes use the same markup and actions.
+const floatingContactTemplate = readFileSync(resolve(root, "components/floating-contact.html"), "utf8");
+const pageFiles = [
+  ["index.html", ""],
+  ["eventos/index.html", "../"],
+  ["el-vinedo/index.html", "../"],
+  ["nosotros/index.html", "../"],
+  ["experiencias/index.html", "../"],
+  ["contacto/index.html", "../"]
+];
+for (const [relativeFile, assetPrefix] of pageFiles) {
+  const outputFile = resolve(dist, relativeFile);
+  let html = readFileSync(outputFile, "utf8");
+  if (!html.includes('class="floating-contact"')) {
+    const component = floatingContactTemplate.replaceAll("__ASSET_PREFIX__", assetPrefix);
+    html = html.replace("</body>", `${component}</body>`);
+    writeFileSync(outputFile, html);
+  }
+}
 
 const required = ["index.html", "styles.css", "app.js", "assets/CormorantGaramond-Medium.ttf"];
 const missing = required.filter((file) => !existsSync(resolve(dist, file)));

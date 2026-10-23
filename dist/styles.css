@@ -464,7 +464,7 @@ body { padding-top: 96px; }
 @font-face{font-family:"Avenir LT Pro";src:url("assets/avenir-lt-pro-book.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Avenir LT Pro";src:url("assets/avenir-lt-pro-medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:"Avenir LT Pro";src:url("assets/avenir-lt-pro-black.otf") format("opentype");font-weight:800;font-style:normal;font-display:swap}
-.events-page{font-family:"Avenir LT Pro",Arial,sans-serif;color:#3f2332;background:#fff}.events-page .header{background:#fffaf4}.events-page .events-nav{grid-template-columns:repeat(5,1fr);column-gap:22px}.events-page .events-nav a{font-family:"Avenir LT Pro",Arial,sans-serif;font-size:14px;letter-spacing:.4px}.events-page h1,.events-page h2,.events-page p{margin:0}.events-page h1,.events-page h2{font-family:var(--font-editorial);font-weight:400;line-height:1.04}.events-page p{line-height:1.45}.events-hero{position:relative;min-height:600px;display:flex;align-items:center;overflow:hidden;color:#fff}.events-hero>img,.events-hero-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.events-hero-overlay{background:linear-gradient(90deg,rgba(41,8,27,.72),rgba(65,16,40,.25))}.events-hero-copy{position:relative;z-index:1;width:min(520px,calc(100% - 96px));margin-inline:max(48px,calc((100% - 1320px)/2));padding:45px 0}.events-kicker{text-transform:uppercase;color:#ca4a83;font-size:13px;letter-spacing:1.2px;margin-bottom:16px!important}.events-hero .events-kicker{color:#fff}.events-hero h1{font-size:clamp(45px,4.2vw,78px);line-height:.98;margin-bottom:18px}.events-hero h1 em{font-style:italic}.events-hero-copy>p:not(.events-kicker){max-width:420px;font-size:17px}.events-button{display:inline-flex;align-items:center;gap:14px;margin-top:24px;padding:10px 14px 10px 20px;border-radius:999px;background:#ce1970;color:#fff;font:500 13px/1 "Avenir LT Pro",Arial,sans-serif}.events-button span{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#ce1970;font-size:20px}.events-section,.events-feature{background:#fff;width:min(1320px,calc(100% - 192px));margin-inline:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:110px;padding:112px 0}.events-section img,.events-feature>img{width:100%;aspect-ratio:1.35;object-fit:cover;box-shadow:0 3px 10px #2c132225}.events-copy{max-width:560px}.events-copy h2,.events-feature h2{font-size:clamp(36px,3vw,58px);color:#b52669;margin-bottom:20px}.events-copy>p:not(.events-kicker),.events-feature .events-copy>p:not(.events-kicker){font-size:16px;color:#33242b}.events-section-reverse .events-copy{order:2}.events-section-reverse img{order:1}.events-band{position:relative;min-height:350px;display:grid;place-items:center;text-align:center;overflow:hidden;color:#fff;padding:80px 24px}.events-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.events-band:after{content:"";position:absolute;inset:0;background:rgba(69,12,40,.72)}.events-band>div{position:relative;z-index:1;max-width:760px}.events-band h2{font-size:clamp(36px,3vw,57px);margin-bottom:12px}.events-band .events-kicker{color:#fff;margin-bottom:12px!important}.events-feature{background:#fff;width:100%;padding-inline:max(96px,calc((100% - 1320px)/2));gap:70px}.events-feature>img{aspect-ratio:1.4}.events-gallery{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center;padding:115px max(96px,calc((100% - 1320px)/2)) 155px;background:linear-gradient(rgba(63,7,40,.83),rgba(63,7,40,.83)),url("../assets/events-gallery-background.png") center/cover;color:#fff}.events-gallery .events-kicker{color:#fff}.events-gallery h2{font-size:clamp(40px,3.2vw,62px);margin-bottom:18px}.events-gallery-copy>p:not(.events-kicker){max-width:520px;font-size:16px}.events-gallery-view{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}.events-gallery-view>img{width:100%;aspect-ratio:.83;object-fit:cover}.events-back-top{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;color:#fff;font:14px "Avenir LT Pro",Arial,sans-serif;gap:4px}.events-back-top span{font-size:32px;line-height:.6;color:#d31a70}.events-page .footer{background:#f5e5c9}.events-page .footer,.events-page .footer a{font-family:"Avenir LT Pro",Arial,sans-serif}.events-page .footer address span{font-family:"Avenir LT Pro",Arial,sans-serif}.events-page .floating-contact{display:none}
+.events-page{font-family:"Avenir LT Pro",Arial,sans-serif;color:#3f2332;background:#fff}.events-page .header{background:#fffaf4}.events-page .events-nav{grid-template-columns:repeat(5,1fr);column-gap:22px}.events-page .events-nav a{font-family:"Avenir LT Pro",Arial,sans-serif;font-size:14px;letter-spacing:.4px}.events-page h1,.events-page h2,.events-page p{margin:0}.events-page h1,.events-page h2{font-family:var(--font-editorial);font-weight:400;line-height:1.04}.events-page p{line-height:1.45}.events-hero{position:relative;min-height:600px;display:flex;align-items:center;overflow:hidden;color:#fff}.events-hero>img,.events-hero-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.events-hero-overlay{background:linear-gradient(90deg,rgba(41,8,27,.72),rgba(65,16,40,.25))}.events-hero-copy{position:relative;z-index:1;width:min(520px,calc(100% - 96px));margin-inline:max(48px,calc((100% - 1320px)/2));padding:45px 0}.events-kicker{text-transform:uppercase;color:#ca4a83;font-size:13px;letter-spacing:1.2px;margin-bottom:16px!important}.events-hero .events-kicker{color:#fff}.events-hero h1{font-size:clamp(45px,4.2vw,78px);line-height:.98;margin-bottom:18px}.events-hero h1 em{font-style:italic}.events-hero-copy>p:not(.events-kicker){max-width:420px;font-size:17px}.events-button{display:inline-flex;align-items:center;gap:14px;margin-top:24px;padding:10px 14px 10px 20px;border-radius:999px;background:#ce1970;color:#fff;font:500 13px/1 "Avenir LT Pro",Arial,sans-serif}.events-button span{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#ce1970;font-size:20px}.events-section,.events-feature{background:#fff;width:min(1320px,calc(100% - 192px));margin-inline:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:110px;padding:112px 0}.events-section img,.events-feature>img{width:100%;aspect-ratio:1.35;object-fit:cover;box-shadow:0 3px 10px #2c132225}.events-copy{max-width:560px}.events-copy h2,.events-feature h2{font-size:clamp(36px,3vw,58px);color:#b52669;margin-bottom:20px}.events-copy>p:not(.events-kicker),.events-feature .events-copy>p:not(.events-kicker){font-size:16px;color:#33242b}.events-section-reverse .events-copy{order:2}.events-section-reverse img{order:1}.events-band{position:relative;min-height:350px;display:grid;place-items:center;text-align:center;overflow:hidden;color:#fff;padding:80px 24px}.events-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.events-band:after{content:"";position:absolute;inset:0;background:rgba(69,12,40,.72)}.events-band>div{position:relative;z-index:1;max-width:760px}.events-band h2{font-size:clamp(36px,3vw,57px);margin-bottom:12px}.events-band .events-kicker{color:#fff;margin-bottom:12px!important}.events-feature{background:#fff;width:100%;padding-inline:max(96px,calc((100% - 1320px)/2));gap:70px}.events-feature>img{aspect-ratio:1.4}.events-gallery{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center;padding:115px max(96px,calc((100% - 1320px)/2)) 155px;background:linear-gradient(rgba(63,7,40,.83),rgba(63,7,40,.83)),url("../assets/events-gallery-background.png") center/cover;color:#fff}.events-gallery .events-kicker{color:#fff}.events-gallery h2{font-size:clamp(40px,3.2vw,62px);margin-bottom:18px}.events-gallery-copy>p:not(.events-kicker){max-width:520px;font-size:16px}.events-gallery-view{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}.events-gallery-view>img{width:100%;aspect-ratio:.83;object-fit:cover}.events-back-top{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;color:#fff;font:14px "Avenir LT Pro",Arial,sans-serif;gap:4px}.events-back-top span{font-size:32px;line-height:.6;color:#d31a70}.events-page .footer{background:#f5e5c9}.events-page .footer,.events-page .footer a{font-family:"Avenir LT Pro",Arial,sans-serif}.events-page .footer address span{font-family:"Avenir LT Pro",Arial,sans-serif}
 @media(max-width:1000px){.events-page .events-nav{column-gap:8px}.events-page .events-nav a{font-size:12px}.events-hero{min-height:540px}.events-section,.events-feature{width:calc(100% - 112px);gap:42px;padding:78px 0}.events-gallery{padding-inline:56px}.events-hero-copy{margin-left:56px;width:min(500px,calc(100% - 112px))}}
 @media(max-width:700px){.events-page .events-nav{display:none}.events-page .header .nav-shell{justify-content:space-between}.events-page .header .brand{position:static;transform:none}.events-hero{min-height:610px}.events-hero-copy{width:calc(100% - 40px);margin:auto;padding-top:85px}.events-hero h1{font-size:45px}.events-hero-copy>p:not(.events-kicker){font-size:15px}.events-section,.events-feature{width:calc(100% - 40px);display:flex;flex-direction:column;gap:34px;padding:64px 0}.events-section-reverse .events-copy,.events-section-reverse img{order:initial}.events-copy h2,.events-feature h2{font-size:40px}.events-band{min-height:330px}.events-gallery{display:flex;flex-direction:column;gap:44px;padding:74px 20px 105px;align-items:stretch}.events-gallery h2{font-size:43px}.events-gallery-view{width:100%}.events-gallery-view>img{aspect-ratio:.9}.events-page .footer-inner{padding-inline:20px}}
 .header nav.has-events{grid-template-columns:repeat(5,1fr);column-gap:22px}.header nav.has-events a:nth-child(n){margin-left:0;margin-right:0}
@@ -569,12 +569,12 @@ body:not(.events-page){padding-top:104px}
 /* Fuente única del header: misma estructura y estilos en Home y Eventos. */
 .site-header{position:fixed;top:0;left:0;width:100%;z-index:100;height:104px;background:#fffaf4}
 .site-header .nav-shell{width:min(1600px,calc(100% - 120px));justify-content:space-between}
-.site-header .brand{position:static;transform:none;width:145px;flex:0 0 145px}
+.site-header .brand{position:static;transform:none;width:180px;flex:0 0 180px}
 .site-header .site-nav{display:flex;width:auto;flex:1;justify-content:flex-end;align-items:center;gap:clamp(28px,4vw,82px);column-gap:clamp(28px,4vw,82px)}
 .site-header .site-nav a{padding:20px 0;white-space:nowrap;text-align:center;margin:0;font:16px "Avenir LT Pro",Arial,sans-serif;letter-spacing:.4px;text-transform:uppercase;color:#63253f}
 .site-header .site-nav a:hover{color:var(--pink)}
-@media(max-width:1000px){.site-header{height:96px}.site-header .nav-shell{width:calc(100% - 64px)}.site-header .brand{width:140px;flex-basis:140px}.site-header .site-nav{gap:20px}.site-header .site-nav a{font-size:13px}}
-@media(max-width:700px){.site-header{height:80px}.site-header .nav-shell{width:calc(100% - 40px)}.site-header .brand{width:125px;flex-basis:125px}.site-header .site-nav{display:none}}
+@media(max-width:1000px){.site-header{height:96px}.site-header .nav-shell{width:calc(100% - 64px)}.site-header .brand{width:175px;flex-basis:175px}.site-header .site-nav{gap:20px}.site-header .site-nav a{font-size:13px}}
+@media(max-width:700px){.site-header{height:80px}.site-header .nav-shell{width:calc(100% - 40px)}.site-header .brand{width:155px;flex-basis:155px}.site-header .site-nav{display:none}}
 
 /* Hero Eventos: el primer renglón conserva “para” en desktop. */
 .events-page .events-hero-copy{width:min(700px,calc(100% - 96px))}
@@ -1099,4 +1099,222 @@ body:not(.events-page){padding-top:104px}
     width: 100%;
     margin-left: 0;
   }
+}/* Home: jerarquía tipográfica global según MDU WEB_HOME.pdf. */
+#contenido .v3-title-kicker,
+#contenido .eyebrow,
+#contenido .middle-gallery-kicker {
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif;
+  font-weight: 400;
+}
+#contenido .v3-title-kicker { text-transform: uppercase; }
+#contenido h1,
+#contenido h2,
+#contenido h3,
+#contenido .story-toggle {
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif;
+  font-weight: 400;
+}
+#contenido p {
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif;
+  font-weight: 400;
+}/* Home: alineación por composición, sin justificar de forma global. */
+#contenido .land .intro,
+#contenido .v2-experiences .experiences-intro,
+#contenido .future .intro,
+#contenido .middle-gallery-section { text-align: center; }
+#contenido .about-slide-overlay { text-align: center; }
+#contenido .contact.section .contact-copy { text-align: left; }
+#contenido .contact.section .contact-copy p { text-align: left; }#contenido .experience-card-overlay { text-align: center; }
+#contenido .experience-card-overlay p { margin-left: auto; margin-right: auto; }/* La historia: jerarquía y espaciado uniforme de todo el recuadro magenta. */
+#contenido .future .intro { text-align: center; }
+#contenido .future .intro > .v3-title-kicker {
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+}
+#contenido .future .intro > #future-title {
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+  text-transform: none;
+}
+#contenido .future .intro > p {
+  width: min(100%, 580px);
+  margin: 0 auto 12px;
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-align: center;
+  color: #fff;
+}
+#contenido .future .intro > p:last-child { margin-bottom: 0; }
+@media (max-width: 700px) {
+  #contenido .future .intro > p { font-size: 15px; line-height: 1.4; }
+}/* La historia: elementos presentes en el mockup Home. */
+#contenido .future-title-wrap {
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+#contenido .future-title-wrap #future-title {
+  margin-bottom: 0;
+}
+#contenido .future-divider {
+  width: 100%;
+  height: 1px;
+  margin: 14px auto 16px;
+  position: relative;
+  background: #fff;
+}
+#contenido .future-divider span {
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+}
+#contenido .future-divider span:first-child { left: -2px; }
+#contenido .future-divider span:last-child { right: -2px; }
+#contenido .future-wines-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  margin-top: 10px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--wine);
+  font: 400 13px/1.2 "Avenir LT Pro", Avenir, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+}
+#contenido .future-wines-button:hover { color: var(--pink); }
+@media (max-width: 700px) {
+  #contenido .future-divider { width: 100%; margin-top: 12px; margin-bottom: 14px; }
+  #contenido .future-wines-button { font-size: 12px; }
+}
+/* La historia: conservar la jerarquía del título al compartir contenedor con la línea. */
+#contenido .future .intro #future-title {
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif;
+  font-size: 38.5px;
+  line-height: 39.2px;
+  letter-spacing: .3px;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+  text-transform: none;
+  margin: 0;
+}
+@media (max-width: 700px) {
+  #contenido .future .intro #future-title {
+    font-size: 34px;
+    line-height: 35px;
+  }
+}
+
+/* Home: composición común de los tres estados del carrusel editorial. */
+.about-slide-overlay h2 {
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif;
+  font-size: 38.5px;
+  line-height: 39.2px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .3px;
+  text-transform: none;
+  margin: 0;
+  color: #fff;
+}
+.about-slide-divider {
+  position: relative;
+  width: min(150px, 100%);
+  height: 1px;
+  margin: 14px auto 16px;
+  background: #fff;
+}
+.about-slide-divider span {
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+}
+.about-slide-divider span:first-child { left: -2px; }
+.about-slide-divider span:last-child { right: -2px; }
+.about-slide-overlay p {
+  width: min(100%, 580px);
+  margin: 0 auto;
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .about-slide-overlay h2 { font-size: 34px; line-height: 35px; }
+  .about-slide-divider { width: min(120px, 100%); margin-top: 12px; margin-bottom: 14px; }
+  .about-slide-overlay p { font-size: 15px; }
+}
+
+/* Carrusel Home: cada línea acompaña el ancho de su título. */
+.about-slide-title-wrap {
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+.about-slide-title-wrap .about-slide-divider {
+  width: 100%;
+}
+
+/* Hero global: subrayado blanco adaptado a la última línea del título. */
+.hero-title-last-line {
+  display: inline-block;
+  max-width: 100%;
+}
+.hero-title-underline {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 14px;
+  background: #fff;
+}
+.nosotros-hero h1 .hero-title-underline,
+.vineyard-hero h1 .hero-title-underline,
+.events-hero h1 .hero-title-underline,
+.experiencias-hero h1 .hero-title-underline,
+.contacto-hero h1 .hero-title-underline {
+  margin-top: 12px;
+}
+@media (max-width: 700px) {
+  .hero-title-underline {
+    margin-top: 10px;
+  }
+}
+
+/* Formulario flotante: título V3 contenido dentro del panel. */
+.floating-info-panel h2 {
+  max-width: 100%;
+  margin: 0 0 18px;
+  color: #fff;
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif;
+  font-size: 25px;
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  overflow-wrap: normal;
+}
+@media (max-width: 700px) {
+  .floating-info-panel h2 { font-size: 22px; line-height: 1.1; }
 }
