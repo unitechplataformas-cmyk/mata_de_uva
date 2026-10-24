@@ -504,8 +504,8 @@ body { padding-top: 96px; }
 
 /* Carrusel oficial de Bodas */
 .events-wedding-media{position:relative;width:100%;aspect-ratio:1.4;overflow:visible;box-shadow:0 3px 10px #2c132225}
-.events-wedding-media>img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:none}
-.events-wedding-media>img.is-active{display:block}
+.events-wedding-media>img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;opacity:0;transition:opacity 1.2s ease;will-change:opacity}
+.events-wedding-media>img.is-active{opacity:1;z-index:1}
 .events-wedding-dots{position:absolute;left:0;right:0;bottom:-22px;display:flex;justify-content:center;gap:9px}
 .events-wedding-dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#d6d0d2;cursor:pointer;transition:transform .25s,background .25s}
 .events-wedding-dots button.is-active{background:var(--pink);transform:scale(1.15)}
@@ -559,6 +559,48 @@ body:not(.events-page){padding-top:104px}
 .events-page .events-wedding-button .events-button-label{display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;min-height:45px;flex:0 0 auto;padding:0 20px;border-radius:9999px;background:#ce1970;color:#fff;white-space:nowrap}
 .events-page .events-wedding-button .events-button-arrow{display:grid;place-items:center;width:45px;height:45px;flex:0 0 45px;border-radius:50%;background:#ce1970;color:#fff;font-size:20px;line-height:1}
 @media(max-width:700px){.events-page .events-wedding-button .events-button-label{min-height:43px;padding-inline:18px}.events-page .events-wedding-button .events-button-arrow{width:43px;height:43px;flex-basis:43px}}
+
+/* Ajustes finales de Bodas: texto alineado al mockup y CTA unificado. */
+.events-page .events-wedding h2 { text-transform: none; }
+.events-page main h1,
+.events-page main h2 { text-transform: none !important; }
+.events-page .events-wedding .events-copy > p:not(.events-kicker) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.events-page .events-hero-button .events-button-label,
+.events-page .events-wedding-button .events-button-label,
+.events-page .events-gallery-button .events-button-label {
+  min-height: 45px;
+  padding-inline: 20px;
+  font-size: 13px;
+}
+.events-page .events-hero-button .events-button-arrow,
+.events-page .events-wedding-button .events-button-arrow,
+.events-page .events-gallery-button .events-button-arrow {
+  width: 45px;
+  height: 45px;
+  flex-basis: 45px;
+  margin-left: -1px;
+  font-size: 20px;
+}
+@media (max-width: 700px) {
+  .events-page .events-hero-button .events-button-label,
+  .events-page .events-wedding-button .events-button-label,
+  .events-page .events-gallery-button .events-button-label {
+    min-height: 43px;
+    padding-inline: 18px;
+  }
+  .events-page .events-hero-button .events-button-arrow,
+  .events-page .events-wedding-button .events-button-arrow,
+  .events-page .events-gallery-button .events-button-arrow {
+    width: 43px;
+    height: 43px;
+    flex-basis: 43px;
+    font-size: 19px;
+  }
+}
 
 /* CTA de Tu evento: mismo patrón cápsula + círculo del CTA principal. */
 .events-page .events-gallery-button{background:transparent;padding:0;gap:0;border-radius:0}
@@ -1395,6 +1437,143 @@ body:not(.events-page){padding-top:104px}
 .contacto-page .contacto-map-copy {
   text-align: center;
 }
+
+/* Hero de Eventos: el párrafo conserva la justificación también en móvil. */
+.events-page .events-hero-copy > p:not(.events-kicker) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+
+/* Los encabezados editoriales conservan mayúsculas y minúsculas naturales. */
+.events-page h1,
+.events-page h2 {
+  text-transform: none;
+}
+
+/* En el Hero de Eventos la línea pertenece al subtítulo. */
+.events-page .events-hero .events-kicker {
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 18px !important;
+}
+.events-page .events-kicker-underline {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 9px;
+  background: #fff;
+}
+
+/* Acción visual del bloque El espacio; el PDF no define un destino de enlace. */
+.events-page .events-space-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 9px 16px;
+  border: 1px solid #ce1970;
+  border-radius: 9999px;
+  color: #ce1970;
+  background: #fff;
+  font: 400 13px/1 "Avenir LT Pro", Arial, sans-serif;
+  white-space: nowrap;
+}
+.events-page .events-space-button span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* Línea del título Tipos de eventos, ajustada a su ancho real y con puntos. */
+.events-page .events-band-title-text {
+  display: inline-block;
+  max-width: 100%;
+}
+.events-page .events-band-title-underline {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 12px auto 0;
+  background: #fff;
+}
+.events-page .events-band-title-underline::before,
+.events-page .events-band-title-underline::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+}
+.events-page .events-band-title-underline::before { left: -2px; }
+.events-page .events-band-title-underline::after { right: -2px; }
+@media (max-width: 700px) {
+  .events-page .events-space-button { margin-top: 20px; padding: 8px 14px; }
+  .events-page .events-band-title-underline { margin-top: 10px; }
+}
+
+/* Todos los CTA magenta equivalentes de Eventos comparten esta medida del mockup. */
+.events-page .events-hero-button .events-button-label,
+.events-page .events-wedding-button .events-button-label,
+.events-page .events-gallery-button .events-button-label {
+  min-height: 45px;
+  padding-inline: 20px;
+  font-size: 13px;
+}
+.events-page .events-hero-button .events-button-arrow,
+.events-page .events-wedding-button .events-button-arrow,
+.events-page .events-gallery-button .events-button-arrow {
+  width: 45px;
+  height: 45px;
+  flex-basis: 45px;
+  margin-left: -1px;
+  font-size: 20px;
+}
+@media (max-width: 700px) {
+  .events-page .events-hero-button .events-button-label,
+  .events-page .events-wedding-button .events-button-label,
+  .events-page .events-gallery-button .events-button-label {
+    min-height: 43px;
+    padding-inline: 18px;
+  }
+  .events-page .events-hero-button .events-button-arrow,
+  .events-page .events-wedding-button .events-button-arrow,
+  .events-page .events-gallery-button .events-button-arrow {
+    width: 43px;
+    height: 43px;
+    flex-basis: 43px;
+    font-size: 19px;
+  }
+}
+
+/* CTA del Hero de Eventos: proporción compacta del mockup, sin afectar otros botones. */
+.events-page .events-hero-button {
+  gap: 0;
+  margin-top: 22px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+.events-page .events-hero-button .events-button-label {
+  min-height: 32px;
+  padding-inline: 14px;
+  border-radius: 9999px;
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.events-page .events-hero-button .events-button-arrow {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  margin-left: -1px;
+  font-size: 16px;
+  line-height: 1;
+}
 @media (max-width: 700px) {
   .nosotros-page .nosotros-hero-copy > p:not(.nosotros-kicker),
   .nosotros-page .nosotros-origin-copy article > p:not(.nosotros-kicker),
@@ -1409,6 +1588,34 @@ body:not(.events-page){padding-top:104px}
   .contacto-page .contacto-form-copy > p:not(.contacto-eyebrow) {
     text-align: left;
     text-align-last: left;
+  }
+  .events-page .events-hero-copy > p:not(.events-kicker) {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+  }
+  .events-page .events-copy > p:not(.events-kicker),
+  .events-page .events-gallery-copy > p:not(.events-kicker) {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+  }
+  .events-page .events-hero-button .events-button-label {
+    min-height: 30px;
+    padding-inline: 13px;
+    font-size: 11px;
+  }
+  .events-page .events-hero-button .events-button-arrow {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+    font-size: 15px;
+  }
+  .events-page .events-hero .events-kicker {
+    margin-bottom: 14px !important;
+  }
+  .events-page .events-kicker-underline {
+    margin-top: 7px;
   }
 }
 
