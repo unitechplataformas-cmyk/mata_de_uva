@@ -859,6 +859,58 @@ body:not(.events-page){padding-top:104px}
 .experiencias-page .experiencias-cta .events-button-arrow{display:grid;place-items:center;width:45px;height:45px;flex:0 0 45px;border-radius:50%;background:#ce1970;color:#fff;font-size:20px;line-height:1}
 @media(max-width:700px){.experiencias-page .experiencias-cta .events-button-label{min-height:43px;padding-inline:18px}.experiencias-page .experiencias-cta .events-button-arrow{width:43px;height:43px;flex-basis:43px}}
 
+/* Experiencias: composición del Hero y CTA equivalentes según el mockup. */
+@media (min-width: 701px) {
+  .experiencias-page .experiencias-hero-copy {
+    padding-left: 16%;
+  }
+}
+.experiencias-page .experiencias-hero-copy > p:last-child {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.experiencias-page .experiencias-cta,
+.experiencias-page .experiencias-events .events-button {
+  gap: 0;
+  padding: 0;
+  border-radius: 0;
+  white-space: nowrap;
+}
+.experiencias-page .experiencias-cta .events-button-label,
+.experiencias-page .experiencias-events .events-button-label {
+  min-height: 45px;
+  height: 45px;
+  padding-inline: 20px;
+  font-size: 13px;
+}
+.experiencias-page .experiencias-cta .events-button-arrow,
+.experiencias-page .experiencias-events .events-button-arrow {
+  width: 45px;
+  height: 45px;
+  flex-basis: 45px;
+  font-size: 20px;
+  margin-left: -1px;
+}
+@media (max-width: 700px) {
+  .experiencias-page .experiencias-hero-copy {
+    padding-left: 0;
+  }
+  .experiencias-page .experiencias-cta .events-button-label,
+  .experiencias-page .experiencias-events .events-button-label {
+    min-height: 43px;
+    height: 43px;
+    padding-inline: 18px;
+  }
+  .experiencias-page .experiencias-cta .events-button-arrow,
+  .experiencias-page .experiencias-events .events-button-arrow {
+    width: 43px;
+    height: 43px;
+    flex-basis: 43px;
+    font-size: 19px;
+  }
+}
+
 /* Contacto page — official mockup layout */
 .contacto-page{background:#fdf8f2;color:#3f2633}
 .contacto-page main{padding-top:0}
@@ -1708,4 +1760,132 @@ body:not(.events-page){padding-top:104px}
   .vineyard-page main .vineyard-visit-button > span:first-child {min-height:43px;height:43px;padding-inline:18px}
   .vineyard-page main .events-hero-button .events-button-arrow,
   .vineyard-page main .vineyard-visit-button > span:last-child {width:43px;height:43px;flex-basis:43px}
+}
+
+/* Experiencias: reglas finales para mantener la composición en todos los breakpoints. */
+.experiencias-page .experiencias-hero-copy > p:last-child {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+@media (max-width:700px) {
+  .experiencias-page .experiencias-hero-copy > p:last-child {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+  }
+}
+
+/* Contacto: composición del Hero conforme al mockup, aislada de las demás páginas. */
+@media (min-width: 801px) {
+  .contacto-page .contacto-hero-copy { padding-left: 16%; }
+}
+.contacto-page .contacto-hero-copy > p:last-child {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.contacto-page .contacto-hero .hero-title-last-line {
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+}
+.contacto-page .contacto-hero-title-stroke {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-top: 6px;
+  object-fit: contain;
+}
+@media (max-width: 800px) {
+  .contacto-page .contacto-hero-copy > p:last-child {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+  }
+  .contacto-page .contacto-hero-title-stroke { margin-top: 5px; }
+}
+/* Ajuste final del trazo original para que conserve presencia visible y proporción en el Hero. */
+.contacto-page .contacto-hero-title-stroke {
+  width: 100%;
+  height: 24px;
+  object-fit: fill;
+  object-position: center;
+}
+@media (max-width: 800px) {
+  .contacto-page .contacto-hero-title-stroke { height: 20px; }
+}
+/* Contacto Hero: subtítulo, título y párrafo comparten el mismo eje izquierdo. */
+.contacto-page .contacto-hero-copy { text-align: left; }
+
+/* Trazos decorativos globales: recurso original con textura de pincel. */
+.hero-title-stroke,
+.nosotros-hero-title-stroke,
+.events-kicker-stroke,
+.events-band-title-stroke {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 24px;
+  margin-top: 6px;
+  object-fit: fill;
+  object-position: center;
+}
+.nosotros-hero-title-wrap .nosotros-hero-title-stroke { margin-top: 10px; }
+.events-page .events-kicker-stroke { margin-top: 9px; }
+.events-page .events-band-title-wrap {
+  display: inline-block;
+  max-width: 100%;
+}
+.events-page .events-band-title-stroke { margin-top: 12px; }
+@media (max-width: 700px) {
+  .hero-title-stroke,
+  .nosotros-hero-title-stroke,
+  .events-kicker-stroke,
+  .events-band-title-stroke { height: 20px; }
+  .nosotros-hero-title-wrap .nosotros-hero-title-stroke { margin-top: 8px; }
+  .events-page .events-kicker-stroke,
+  .events-page .events-band-title-stroke { margin-top: 8px; }
+}
+/* Evita la línea CSS heredada de Nosotros: el trazo visible es únicamente el PNG original. */
+.nosotros-page .nosotros-hero-title-wrap {
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+}
+.nosotros-page .nosotros-hero-title-wrap h1::after { display: none; }
+/* El Viñedo: el contenedor del último renglón debe dimensionarse al texto y al PNG. */
+.vineyard-page .vineyard-hero-last-line {
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+}
+.vineyard-page .vineyard-hero-last-line .hero-title-stroke {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: 24px !important;
+  margin-top: 6px !important;
+  position: relative;
+  z-index: 3;
+}
+/* Trazos originales: mayor presencia visual sin cambiar su ancho ni recurso. */
+.hero-title-stroke,
+.nosotros-hero-title-stroke,
+.events-kicker-stroke,
+.events-band-title-stroke,
+.contacto-page .contacto-hero-title-stroke {
+  height: 36px !important;
+  object-fit: fill;
+}
+@media (max-width: 700px) {
+  .hero-title-stroke,
+  .nosotros-hero-title-stroke,
+  .events-kicker-stroke,
+  .events-band-title-stroke,
+  .contacto-page .contacto-hero-title-stroke {
+    height: 30px !important;
+  }
 }
