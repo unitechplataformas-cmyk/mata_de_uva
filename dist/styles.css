@@ -596,6 +596,7 @@ body:not(.events-page){padding-top:104px}
 .vineyard-hero h1{font-size:clamp(48px,5vw,78px);line-height:.98;margin-bottom:24px}
 .vineyard-hero h1 em{font-style:italic}
 .vineyard-hero-copy>p:not(.vineyard-kicker){max-width:520px;font-size:17px;line-height:1.45}
+.vineyard-hero-copy>p:not(.vineyard-kicker){text-align:justify;text-align-last:left;text-justify:inter-word}
 .vineyard-actions{display:flex;gap:20px;flex-wrap:wrap;margin-top:28px}
 .vineyard-page .events-hero-button{background:transparent;padding:0;gap:0;border-radius:0;margin-top:0}
 .vineyard-page .events-hero-button .events-button-label{display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;min-height:45px;flex:0 0 auto;padding:0 20px;border-radius:9999px;background:#ce1970;color:#fff;white-space:nowrap}
@@ -615,6 +616,7 @@ body:not(.events-page){padding-top:104px}
 .vineyard-panel-copy .events-kicker{color:#b52669}
 .vineyard-panel-copy h2{font-size:clamp(42px,4vw,64px);color:#b52669;margin-bottom:22px}
 .vineyard-panel-copy>p:not(.events-kicker){font-size:16px;line-height:1.5;color:#33242b}
+.vineyard-panel-copy>p:not(.events-kicker){text-align:justify;text-align-last:left;text-justify:inter-word}
 .vineyard-panel-copy .events-button{margin-top:28px}
 .vineyard-gallery{position:relative;min-width:0}
 .vineyard-gallery figure{margin:0}
@@ -1433,30 +1435,12 @@ body:not(.events-page){padding-top:104px}
   }
 }
 /* Correcciones específicas de El Viñedo: título del Hero y trazo proporcional al bloque. */
-.vineyard-page .vineyard-hero-title-wrap {
-  display: table;
-  width: auto;
-  max-width: 100%;
-}
-.vineyard-page .vineyard-hero-title-wrap h1 {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  margin-bottom: 0;
-}
-.vineyard-page .vineyard-hero-title-wrap .hero-title-underline {
-  display: block;
-  width: 100%;
-  height: 1px;
-  margin-top: 12px;
-  background: #fff;
-}
-.vineyard-page .vineyard-hero-title-wrap h1 em { font-style: italic; font-weight: 400; }
-@media (max-width: 700px) {
-  .vineyard-page .vineyard-hero-title-wrap { width: max-content; max-width: 100%; }
-  .vineyard-page .vineyard-hero-title-wrap h1 { width: max-content; max-width: 100%; }
-  .vineyard-page .vineyard-hero-title-wrap .hero-title-underline { margin-top: 10px; }
-}
+.vineyard-page .vineyard-hero-title-wrap { display:block; width:max-content; max-width:100%; }
+.vineyard-page .vineyard-hero-title-wrap h1 { display:block; width:max-content; max-width:100%; margin-bottom:0; }
+.vineyard-page .vineyard-hero-last-line { display:block; width:max-content; max-width:100%; }
+.vineyard-page .vineyard-hero-last-line .hero-title-underline { display:block; width:100%; height:1px; margin-top:12px; background:#fff; }
+.vineyard-page .vineyard-hero-title-wrap h1 em { font-style:italic; font-weight:400; }
+@media (max-width:700px) { .vineyard-page .vineyard-hero-title-wrap, .vineyard-page .vineyard-hero-title-wrap h1, .vineyard-page .vineyard-hero-last-line { width:max-content; max-width:100%; } .vineyard-page .vineyard-hero-last-line .hero-title-underline { margin-top:10px; } }
 /* Nuestro sello: eje común para la introducción y texto editorial de cada vino. */
 .nosotros-page .nosotros-seal-intro {
   width: min(100%, 820px);
@@ -1468,4 +1452,53 @@ body:not(.events-page){padding-top:104px}
   text-align-last: left;
   text-justify: inter-word;
   hyphens: none;
+}
+/* El Viñedo: botones de acción equivalentes con cápsula y círculo unidos */
+.vineyard-page main .events-hero-button,
+.vineyard-page main .vineyard-visit-button {
+  display:inline-flex;
+  align-items:center;
+  gap:0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  white-space:nowrap;
+  text-decoration:none;
+}
+.vineyard-page main .events-hero-button .events-button-label,
+.vineyard-page main .vineyard-visit-button > span:first-child {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:45px;
+  height:45px;
+  flex:0 0 auto;
+  padding:0 20px;
+  border-radius:9999px;
+  white-space:nowrap;
+  font:400 13px/1 "Avenir LT Pro",Arial,sans-serif;
+}
+.vineyard-page main .events-hero-button .events-button-arrow,
+.vineyard-page main .vineyard-visit-button > span:last-child {
+  display:grid;
+  place-items:center;
+  width:45px;
+  height:45px;
+  flex:0 0 45px;
+  margin:0;
+  border-radius:50%;
+  font-size:20px;
+  line-height:1;
+}
+/* El Hero usa magenta; Visítanos conserva el blanco del mockup sobre fondo magenta. */
+.vineyard-page main .events-hero-button .events-button-label,
+.vineyard-page main .events-hero-button .events-button-arrow {background:#ce1970;color:#fff}
+.vineyard-page main .vineyard-visit-button {background:transparent;color:#b0185e}
+.vineyard-page main .vineyard-visit-button > span:first-child,
+.vineyard-page main .vineyard-visit-button > span:last-child {background:#fff;color:#b0185e}
+@media(max-width:700px){
+  .vineyard-page main .events-hero-button .events-button-label,
+  .vineyard-page main .vineyard-visit-button > span:first-child {min-height:43px;height:43px;padding-inline:18px}
+  .vineyard-page main .events-hero-button .events-button-arrow,
+  .vineyard-page main .vineyard-visit-button > span:last-child {width:43px;height:43px;flex-basis:43px}
 }
