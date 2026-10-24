@@ -1,4 +1,14 @@
 {
   "project_id": "appgprj_6abaaea9ab7c8191a3e5c8871abe3b39",
-  "static": { "directory": "dist" }
+  "static": { "directory": "dist" },
+  "deployment": {
+    "source_branch": "main",
+    "build_command": "npm run build",
+    "production_domains": [
+      "https://www.matadeuva.com",
+      "https://matadeuva.com",
+      "https://mata-de-uva.pages.dev"
+    ],
+    "source_of_truth": "local-build"
+  }
 }
