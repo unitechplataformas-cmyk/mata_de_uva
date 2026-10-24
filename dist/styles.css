@@ -1469,3 +1469,8 @@ body:not(.events-page){padding-top:104px}
   text-justify: inter-word;
   hyphens: none;
 }
+
+/* Publicación sincronizada: controles aprobados de El Viñedo */
+.vineyard-page .vineyard-actions .events-button{display:inline-flex;align-items:center;gap:0;white-space:nowrap}
+.vineyard-page .vineyard-actions .events-button-label{white-space:nowrap}
+.vineyard-page .vineyard-actions .events-button-arrow{display:grid;place-items:center;flex:0 0 54px;width:54px;height:54px;border-radius:50%;margin-left:-1px}
