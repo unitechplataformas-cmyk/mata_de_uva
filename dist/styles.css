@@ -178,6 +178,49 @@ p, .footer address, .story-overlay p, .experience-list p, .about-v2-intro p, .ab
   .hero-content .button-arrow { width: 44px; height: 44px; flex-basis: 44px; }
 }
 
+/* Ajuste final de VISÍTANOS conforme a la referencia aprobada. */
+.vineyard-page main .vineyard-visit h2 {
+  font-size: clamp(36px, 2.8vw, 40px);
+  line-height: 1.1;
+}
+.vineyard-page main .vineyard-visit > p {
+  width: min(760px, 92vw);
+  max-width: 760px;
+  font: 400 16px/1.45 "Avenir LT Pro", Arial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center !important;
+  text-align-last: center !important;
+  text-justify: auto;
+}
+.vineyard-page main .vineyard-visit > p + p {
+  width: min(460px, 92vw);
+  max-width: 460px;
+}
+.vineyard-page main .vineyard-visit-button {
+  width: 213px;
+  min-width: 213px;
+  height: 44px;
+  min-height: 44px;
+}
+.vineyard-page main .vineyard-visit-button > span:first-child {
+  font: 400 15px/1 "Avenir LT Pro", Arial, sans-serif;
+}
+@media (max-width:700px) {
+  .vineyard-page main .vineyard-visit > p {
+    width: min(360px, 92vw);
+    max-width: 360px;
+  }
+  .vineyard-page main .vineyard-visit > p + p {
+    width: min(300px, 92vw);
+    max-width: 300px;
+  }
+  .vineyard-page main .vineyard-visit-button {
+    width: min(213px, 100%);
+    min-width: 0;
+  }
+}
+
 
 
 /* Nuestra Historia typography alignment from V2 mockup. */
@@ -858,6 +901,45 @@ body:not(.events-page){padding-top:104px}
 .experiencias-page .experiencias-cta .events-button-label{display:inline-flex;align-items:center;justify-content:center;min-height:45px;width:auto;flex:0 0 auto;padding:0 20px;border-radius:9999px;background:#ce1970;color:#fff;font:400 13px/1 "Avenir LT Pro",Arial,sans-serif;white-space:nowrap}
 .experiencias-page .experiencias-cta .events-button-arrow{display:grid;place-items:center;width:45px;height:45px;flex:0 0 45px;border-radius:50%;background:#ce1970;color:#fff;font-size:20px;line-height:1}
 @media(max-width:700px){.experiencias-page .experiencias-cta .events-button-label{min-height:43px;padding-inline:18px}.experiencias-page .experiencias-cta .events-button-arrow{width:43px;height:43px;flex-basis:43px}}
+
+/* Experiencias: misma variante de cápsula que "Conoce el espacio" en Eventos. */
+.experiencias-page .experiencias-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 9px 16px;
+  border: 1px solid #ce1970;
+  border-radius: 9999px;
+  color: #ce1970;
+  background: #fff;
+  font: 400 13px/1 "Avenir LT Pro", Arial, sans-serif;
+  white-space: nowrap;
+}
+.experiencias-page .experiencias-cta .events-button-label {
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #ce1970;
+  font: inherit;
+}
+.experiencias-page .experiencias-cta .events-button-arrow {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  border-radius: 0;
+  background: transparent;
+  color: #ce1970;
+  font-size: 17px;
+  line-height: 1;
+}
+@media(max-width:700px){
+  .experiencias-page .experiencias-cta { padding: 8px 14px; }
+  .experiencias-page .experiencias-cta .events-button-label { min-height: 0; padding-inline: 0; }
+  .experiencias-page .experiencias-cta .events-button-arrow { width: auto; height: auto; flex-basis: auto; }
+}
 
 /* Experiencias: composición del Hero y CTA equivalentes según el mockup. */
 @media (min-width: 701px) {
@@ -1768,6 +1850,20 @@ body:not(.events-page){padding-top:104px}
   text-align-last: left;
   text-justify: inter-word;
 }
+/* Visítanos: justificación explícita de ambos párrafos, con bloque centrado. */
+.vineyard-page main .vineyard-visit > p {
+  width: min(540px, 92vw);
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify !important;
+  text-align-last: center !important;
+  text-justify: inter-word;
+}
+.vineyard-page main .vineyard-visit > p + p {
+  width: min(380px, 92vw);
+  max-width: 380px;
+}
 @media (max-width:700px) {
   .experiencias-page .experiencias-hero-copy > p:last-child {
     text-align: justify;
@@ -1887,5 +1983,497 @@ body:not(.events-page){padding-top:104px}
   .events-band-title-stroke,
   .contacto-page .contacto-hero-title-stroke {
     height: 30px !important;
+  }
+}
+
+/* Brand Book V3 audit corrections: typography and approved overlays */
+:root{
+  --font-copy:"Avenir LT Pro",Avenir,Arial,sans-serif;
+  --body:"Avenir LT Pro",Avenir,Arial,sans-serif;
+}
+body{font-family:var(--body)}
+p{font-family:"Avenir LT Pro",Avenir,Arial,sans-serif !important;letter-spacing:0}
+.hero-overlay,
+.events-hero-overlay,
+.vineyard-hero-overlay,
+.nosotros-hero-overlay,
+.experiencias-hero-overlay,
+.contacto-hero-overlay{
+  background:linear-gradient(to right,rgba(43,9,27,1) 0%,rgba(43,9,27,.4) 100%) !important;
+}
+.story-overlay,
+.events-band:after,
+.experiencias-events-overlay{
+  background:rgba(43,9,27,.8) !important;
+}
+.experience-card-overlay{
+  background:linear-gradient(transparent,rgba(43,9,27,.8)) !important;
+}
+.events-gallery{
+  background:linear-gradient(rgba(43,9,27,.8),rgba(43,9,27,.8)),url("../assets/events-gallery-background.png") center/cover !important;
+}
+.nosotros-seal,
+.experiencias-card--sand,
+.vineyard-explorer.is-beige{
+  background-color:rgba(243,232,214,.4) !important;
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+/* Corrección de alineación de Hero: Experiencias y Contacto usan el mismo eje aprobado. */
+@media (min-width: 801px) {
+  .experiencias-page .experiencias-hero-copy,
+  .contacto-page .contacto-hero-copy {
+    width: min(620px, calc(100% - 96px));
+    max-width: 620px;
+    margin-inline: max(48px, calc((100% - 1320px) / 2));
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+/* Home: jerarquía tipográfica final aislada bajo #contenido. */
+#contenido .v3-title-kicker,
+#contenido .eyebrow,
+#contenido .middle-gallery-kicker {
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif !important;
+  font-weight: 400 !important;
+}
+#contenido h1,
+#contenido h2,
+#contenido h3,
+#contenido .story-toggle {
+  font-family: "Cormorant Garamond", Cormorant, Georgia, serif !important;
+  font-weight: 400 !important;
+}
+#contenido p {
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif !important;
+  font-weight: 400 !important;
+}
+/* Home: igualar la separación del subtítulo de La historia con los bloques equivalentes. */
+#contenido .future .intro > .v3-title-kicker {
+  margin-bottom: 0;
+}
+/* Home: escala tipográfica de los tres párrafos de La historia según el mockup. */
+#contenido .future .intro > p {
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+}
+@media (max-width: 700px) {
+  #contenido .future .intro > p {
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+}
+/* Home: carrusel Descubre Mata de Uva lento y estable tras abrir fotos en táctil. */
+.middle-gallery-track {
+  animation-duration: 68s;
+}
+@media (max-width: 1000px) {
+  .middle-gallery-track {
+    animation-duration: 68s;
+  }
+}
+@media (hover: none) and (pointer: coarse) {
+  .middle-gallery-viewport:focus-within .middle-gallery-track {
+    animation-play-state: running;
+  }
+}
+/* Home Hero: “Conoce más” es una única cápsula, sin flecha ni círculo. */
+#contenido .hero-content > a.hero-home-button {
+  min-height: 44px;
+  padding: 0 24px;
+  gap: 0;
+  background: var(--pink);
+  border-radius: 9999px;
+}
+#contenido .hero-content > a.hero-home-button .button-label {
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+}
+#contenido .hero-content > a.hero-home-button:hover {
+  background: var(--wine);
+}
+@media (max-width: 700px) {
+  #contenido .hero-content > a.hero-home-button {
+    padding-inline: 20px;
+  }
+}
+
+/* Override final para mantener la variante aprobada en Experiencias. */
+.experiencias-page a.experiencias-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 9px 16px;
+  border: 1px solid #ce1970;
+  border-radius: 9999px;
+  background: #fff;
+  color: #ce1970;
+  font: 400 13px/1 "Avenir LT Pro", Arial, sans-serif;
+  white-space: nowrap;
+}
+.experiencias-page a.experiencias-cta .events-button-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #ce1970;
+  font: inherit;
+}
+.experiencias-page a.experiencias-cta .events-button-arrow {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  flex-basis: auto;
+  border-radius: 0;
+  background: transparent;
+  color: #ce1970;
+  font-size: 17px;
+  line-height: 1;
+}
+@media (max-width: 700px) {
+  .experiencias-page a.experiencias-cta { padding: 8px 14px; }
+  .experiencias-page a.experiencias-cta .events-button-label { min-height: 0; padding-inline: 0; }
+  .experiencias-page a.experiencias-cta .events-button-arrow { width: auto; height: auto; flex-basis: auto; }
+}
+
+/* Variantes finales del mockup maestro: "Solicita información" es enlace plano. */
+.experiencias-page a.experiencias-cta {
+  gap: 8px;
+  margin-top: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #ce1970;
+}
+.experiencias-page a.experiencias-cta .events-button-label {
+  background: transparent;
+  color: #ce1970;
+}
+.experiencias-page a.experiencias-cta .events-button-arrow {
+  background: transparent;
+  color: #ce1970;
+}
+
+/* "Conoce más" en Eventos privados: cápsula magenta sin flecha. */
+.experiencias-page .experiencias-events a.events-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 16px;
+  width: min(213px, 100%);
+  min-width: 0;
+  height: 44px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 9999px;
+  background: #ce1970;
+  color: #fff;
+  font: 400 13px/1 "Avenir LT Pro", Arial, sans-serif;
+  white-space: nowrap;
+  justify-content: center;
+}
+.experiencias-page .experiencias-events a.events-button .events-button-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+}
+
+/* Restauración de Eventos privados: texto alineado al bloque izquierdo del mockup. */
+.experiencias-page .experiencias-events .experiencias-card-copy {
+  text-align: left;
+}
+.experiencias-page .experiencias-events .experiencias-eyebrow {
+  font-size: 14px;
+  line-height: 1.3;
+  margin: 0 0 14px;
+}
+.experiencias-page .experiencias-events .experiencias-card-copy > p:not(.experiencias-eyebrow) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Eventos: "Solicita información" usa texto y flecha magenta sin contorno. */
+.events-page a.events-gallery-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #ce1970;
+  font: 400 13px/1 "Avenir LT Pro", Arial, sans-serif;
+  white-space: nowrap;
+}
+.events-page a.events-gallery-button .events-button-label {
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #ce1970;
+  font: inherit;
+}
+.events-page a.events-gallery-button .events-button-arrow {
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  border-radius: 0;
+  background: transparent;
+  color: #ce1970;
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* El Viñedo: los botones de acción son cápsulas simples; las flechas de galerías no se tocan. */
+.vineyard-page main .events-hero-button .events-button-arrow,
+.vineyard-page main .vineyard-visit-button > span:last-child:not(:first-child) {
+  display: none;
+}
+
+/* Visítanos: composición compacta con el trazo PNG original bajo el título. */
+.vineyard-page .vineyard-visit {
+  padding: 48px 24px 46px;
+}
+.vineyard-page .vineyard-visit-kicker {
+  margin-bottom: 8px;
+}
+.vineyard-page .vineyard-visit h2 {
+  font-size: clamp(32px, 3vw, 44px);
+  margin-bottom: 0;
+}
+.vineyard-page .vineyard-visit-title-rule {
+  display: block;
+  position: relative;
+  width: min(560px, 82vw);
+  height: 1px;
+  margin: 10px auto 18px;
+  background: #fff;
+}
+.vineyard-page .vineyard-visit-title-rule::before,
+.vineyard-page .vineyard-visit-title-rule::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+}
+.vineyard-page .vineyard-visit-title-rule::before { left: 0; }
+.vineyard-page .vineyard-visit-title-rule::after { right: 0; }
+.vineyard-page .vineyard-visit p {
+  font: 400 15px/1.4 "Avenir LT Pro", Arial, sans-serif;
+  width: min(820px, 92vw);
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  text-align-last: center;
+  text-justify: inter-word;
+}
+.vineyard-page .vineyard-visit p + p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.vineyard-page .vineyard-visit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 213px;
+  height: 44px;
+  margin-top: 0;
+  padding: 0;
+  border-radius: 9999px;
+  background: #fff;
+  color: #b0185e;
+  font: 400 15px/1 "Avenir LT Pro", Arial, sans-serif;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 1;
+}
+.vineyard-page .vineyard-visit-button > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border-radius: inherit;
+  background: #fff;
+  color: #b0185e;
+}
+/* Override de las reglas antiguas del círculo: el único span es la cápsula completa. */
+.vineyard-page main .vineyard-visit-button {
+  width: 176px;
+  min-width: 176px;
+  height: 38px;
+  min-height: 38px;
+  padding: 0;
+  border-radius: 9999px;
+  background: #fff;
+  color: #b0185e;
+}
+.vineyard-page main .vineyard-visit-button > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  border-radius: 9999px;
+  background: #fff;
+  color: #b0185e;
+  font: 400 13px/1 "Avenir LT Pro", Arial, sans-serif;
+}
+@media (max-width:700px) {
+  .vineyard-page .vineyard-visit { padding: 42px 20px 40px; }
+  .vineyard-page .vineyard-visit h2 { font-size: 34px; }
+  .vineyard-page .vineyard-visit-title-rule { width: min(360px, 84vw); margin-top: 8px; margin-bottom: 14px; }
+  .vineyard-page main .vineyard-visit > p { width: min(360px, 92vw); max-width: 360px; }
+  .vineyard-page main .vineyard-visit > p + p { width: min(360px, 92vw); max-width: 360px; }
+  .vineyard-page main .vineyard-visit-button { width: min(176px, 100%); min-width: 176px; height: 38px; min-height: 38px; }
+}
+
+/* Nosotros: el mockup usa una cápsula de texto sin flecha ni círculo. */
+.nosotros-page .nosotros-button {
+  gap: 0;
+}
+.nosotros-page .nosotros-button .events-button-arrow {
+  display: none;
+}
+
+/* Eventos: la variante aprobada de "Solicita información" es cápsula + círculo. */
+.events-page a.events-gallery-button {
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  font: 400 13px/1 "Avenir LT Pro", Arial, sans-serif;
+}
+.events-page a.events-gallery-button .events-button-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  min-height: 45px;
+  padding: 0 20px;
+  border-radius: 9999px;
+  background: #ce1970;
+  color: #fff;
+  font: inherit;
+  white-space: nowrap;
+}
+.events-page a.events-gallery-button .events-button-arrow {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  flex: 0 0 45px;
+  border-radius: 50%;
+  background: #ce1970;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+}
+@media (max-width: 700px) {
+  .events-page a.events-gallery-button .events-button-label { min-height: 43px; padding-inline: 18px; }
+  .events-page a.events-gallery-button .events-button-arrow { width: 43px; height: 43px; flex-basis: 43px; }
+}
+
+/* Tipos de eventos: línea recta CSS, sin imagen de pincel. */
+.events-page .events-band-title-wrap {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #fff;
+}
+.events-page .events-band-title-wrap::before,
+.events-page .events-band-title-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+.events-page .events-band-title-wrap::before { left: -3px; }
+.events-page .events-band-title-wrap::after { right: -3px; }
+@media (max-width:700px) {
+  .events-page .events-band-title-wrap { padding-bottom: 10px; }
+}
+
+/* VISÍTANOS: réplica final del mockup, aislada de las demás páginas. */
+.vineyard-page main .vineyard-visit h2 {
+  font-size: clamp(36px, 2.8vw, 40px);
+  line-height: 1.1;
+}
+.vineyard-page main .vineyard-visit > p,
+.vineyard-page main .vineyard-visit > p + p {
+  width: min(760px, 92vw);
+  max-width: 760px;
+  font: 400 18px/1.4 "Avenir LT Pro", Arial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center !important;
+  text-align-last: center !important;
+  text-justify: auto;
+}
+.vineyard-page main .vineyard-visit > p + p {
+  width: min(300px, 92vw);
+  max-width: 300px;
+}
+.vineyard-page main .vineyard-visit-button {
+  width: 213px;
+  min-width: 213px;
+  height: 44px;
+  min-height: 44px;
+}
+.vineyard-page main .vineyard-visit-button > span:first-child {
+  font: 400 15px/1 "Avenir LT Pro", Arial, sans-serif;
+}
+@media (max-width:700px) {
+  .vineyard-page main .vineyard-visit > p,
+  .vineyard-page main .vineyard-visit > p + p {
+    width: min(360px, 92vw);
+    max-width: 360px;
+  }
+  .vineyard-page main .vineyard-visit-button {
+    width: min(213px, 100%);
+    min-width: 0;
   }
 }

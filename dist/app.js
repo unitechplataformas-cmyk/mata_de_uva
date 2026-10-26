@@ -5,6 +5,14 @@ function closeMenu() {
   toggle.setAttribute('aria-label', 'Abrir menú');
   navigation.classList.remove('is-open');
 }
+
+// Corrección de navegación: las agendas de Nosotros abren Contacto directamente.
+if (document.body?.classList.contains('nosotros-page')) {
+  document.querySelectorAll('a').forEach(link => {
+    const label = link.textContent.replace(/\s+/g, ' ').trim();
+    if (label === 'Agenda una visita') link.setAttribute('href', '../contacto/');
+  });
+}
 toggle.addEventListener('click', () => {
   const open = toggle.getAttribute('aria-expanded') !== 'true';
   toggle.setAttribute('aria-expanded', String(open));
