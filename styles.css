@@ -1353,6 +1353,71 @@ body:not(.events-page){padding-top:104px}
 #contenido .contact.section .contact-copy { text-align: left; }
 #contenido .contact.section .contact-copy p { text-align: left; }#contenido .experience-card-overlay { text-align: center; }
 #contenido .experience-card-overlay p { margin-left: auto; margin-right: auto; }/* La historia: jerarquía y espaciado uniforme de todo el recuadro magenta. */
+
+/* Homologación V3: cada composición conserva la alineación de su mockup.
+   Estos selectores quedan aislados por página/sección para no propagar una
+   justificación global a bloques que deben permanecer centrados. */
+#contenido .land .intro > p,
+#contenido .v2-experiences .experiences-intro > p,
+#contenido .future .intro > p,
+#contenido .about-slide-overlay > p,
+#contenido .experience-card-overlay > p {
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+}
+#contenido .contact.section .contact-copy > p { text-align: left; }
+
+.nosotros-page .nosotros-passion-copy,
+.nosotros-page .nosotros-seal-intro,
+.nosotros-page .nosotros-know > p:not(.nosotros-kicker) {
+  text-align: center;
+  margin-inline: auto;
+}
+.nosotros-page .nosotros-origin-copy article > p:not(.nosotros-kicker),
+.nosotros-page .nosotros-wine-copy > p:not(.nosotros-kicker) {
+  text-align: left;
+}
+
+.vineyard-page .vineyard-hero-copy > p:not(.vineyard-kicker),
+.vineyard-page .vineyard-panel-copy > p:not(.events-kicker) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.vineyard-page .vineyard-explorer-intro > p:not(.events-kicker),
+.vineyard-page .vineyard-visit p,
+.vineyard-page .vineyard-link-card { text-align: center; }
+
+.events-page .events-hero-copy > p:not(.events-kicker),
+.events-page .events-copy > p:not(.events-kicker),
+.events-page .events-feature .events-copy > p:not(.events-kicker),
+.events-page .events-gallery-copy > p:not(.events-kicker) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.events-page .events-band > div > p:not(.events-kicker),
+.events-page .events-gallery-note { text-align: center; }
+
+.experiencias-page .experiencias-hero-copy > p:last-child,
+.experiencias-page .experiencias-card-copy > p:not(.experiencias-eyebrow),
+.experiencias-page .experiencias-events p {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.experiencias-page .experiencias-intro > p:not(.experiencias-eyebrow) { text-align: center; }
+
+.contacto-page .contacto-hero-copy > p:last-child,
+.contacto-page .contacto-directo-copy > p:not(.contacto-eyebrow),
+.contacto-page .contacto-form-copy > p:not(.contacto-eyebrow) {
+  text-align: left;
+}
+@media (max-width: 700px) {
+  #contenido .contact.section .contact-copy > p,
+  .contacto-page .contacto-hero-copy > p:last-child { text-align: center; }
+}
 #contenido .future .intro { text-align: center; }
 #contenido .future .intro > .v3-title-kicker {
   font-family: "Avenir Next LT Pro", Avenir, Arial, sans-serif;
