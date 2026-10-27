@@ -1,23 +1,44 @@
 const toggle = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
+const isMobileMenu = () => window.matchMedia('(max-width: 700px)').matches;
 function closeMenu() {
   toggle.setAttribute('aria-expanded', 'false');
   toggle.setAttribute('aria-label', 'Abrir menú');
+  navigation.setAttribute('aria-hidden', isMobileMenu() ? 'true' : 'false');
   navigation.classList.remove('is-open');
+  document.body.classList.remove('menu-open');
+}
+
+navigation.setAttribute('aria-hidden', isMobileMenu() ? 'true' : 'false');
+
+// Corrección de navegación: las agendas de Nosotros abren Contacto directamente.
+if (document.body?.classList.contains('nosotros-page')) {
+  document.querySelectorAll('a').forEach(link => {
+    const label = link.textContent.replace(/\s+/g, ' ').trim();
+    if (label === 'Agenda una visita') link.setAttribute('href', '../contacto/');
+  });
 }
 toggle.addEventListener('click', () => {
   const open = toggle.getAttribute('aria-expanded') !== 'true';
   toggle.setAttribute('aria-expanded', String(open));
   toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  navigation.setAttribute('aria-hidden', isMobileMenu() ? String(!open) : 'false');
   navigation.classList.toggle('is-open', open);
+  document.body.classList.toggle('menu-open', open);
 });
 navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('pointerdown', event => {
+  if (toggle.getAttribute('aria-expanded') !== 'true') return;
+  if (!event.target.closest('.site-header')) closeMenu();
+});
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
     closeMenu(); toggle.focus();
   }
 });
-window.matchMedia('(min-width: 701px)').addEventListener('change', closeMenu);
+const desktopQuery = window.matchMedia('(min-width: 701px)');
+if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', closeMenu);
+else desktopQuery.addListener(closeMenu);
 document.querySelectorAll('.story-toggle').forEach((button, index) => {
   const card = button.closest('.story-card');
   const panel = card.querySelector('.story-overlay');
