@@ -57,6 +57,18 @@ let activeExperience = 1;
 let experienceRotationTimer = null;
 const experiencePhotos = experienceCards.map(card => [...card.querySelectorAll('.experience-card-image')]);
 const experiencePhotoIndexes = experiencePhotos.map(() => 0);
+const preloadImageElements = images => Promise.all(images.map(image => {
+  if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+  const preload = new Image();
+  preload.decoding = 'async';
+  const source = image.currentSrc || image.src;
+  return new Promise(resolve => {
+    const done = () => resolve();
+    preload.addEventListener('load', done, {once:true});
+    preload.addEventListener('error', done, {once:true});
+    preload.src = source;
+  }).then(() => typeof preload.decode === 'function' ? preload.decode().catch(() => {}) : undefined);
+}));
 const setExperiencePosition = (card, position) => {
   card.classList.remove('is-prev', 'is-active', 'is-next');
   card.classList.add(position);
@@ -92,9 +104,13 @@ const rotateExperiencePhotos = categoryIndex => {
 };
 const startExperienceRotation = () => {
   if (experienceRotationTimer) window.clearInterval(experienceRotationTimer);
-  experienceRotationTimer = window.setInterval(() => {
-    experiencePhotos.forEach((_, index) => rotateExperiencePhotos(index));
-  }, 6000);
+  const allImages = experiencePhotos.flat();
+  preloadImageElements(allImages).then(() => {
+    if (!experienceCarousel || document.visibilityState === 'hidden') return;
+    experienceRotationTimer = window.setInterval(() => {
+      experiencePhotos.forEach((_, index) => rotateExperiencePhotos(index));
+    }, 6000);
+  });
 };
 if (experienceCarousel && experienceCards.length === 3) {
   updateExperiencePositions(activeExperience);
@@ -106,6 +122,7 @@ if (experienceCarousel && experienceCards.length === 3) {
     });
   });
   startExperienceRotation();
+  window.addEventListener('pagehide', () => window.clearInterval(experienceRotationTimer));
 }
 const middleGalleryTrack = document.querySelector('.middle-gallery-track');
 if (middleGalleryTrack) {
@@ -115,17 +132,16 @@ if (middleGalleryTrack) {
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
 if (heroSlides.length > 1) {
   let activeSlide = 0;
-  window.setInterval(() => {
-    heroSlides[activeSlide].classList.remove('is-active');
-    activeSlide = (activeSlide + 1) % heroSlides.length;
-    heroSlides[activeSlide].classList.add('is-active');
-  }, 5000);
-  window.setTimeout(() => {
-    heroSlides.slice(1).forEach(slide => {
-      const preload = new Image();
-      preload.src = slide.currentSrc || slide.src;
-    });
-  }, 250);
+  let heroRotationTimer = null;
+  preloadImageElements(heroSlides).then(() => {
+    if (document.visibilityState === 'hidden') return;
+    heroRotationTimer = window.setInterval(() => {
+      heroSlides[activeSlide].classList.remove('is-active');
+      activeSlide = (activeSlide + 1) % heroSlides.length;
+      heroSlides[activeSlide].classList.add('is-active');
+    }, 5000);
+  });
+  window.addEventListener('pagehide', () => window.clearInterval(heroRotationTimer));
 }
 
 const landVideo = document.querySelector('.landscape video[data-video-parts]');
@@ -179,7 +195,12 @@ if (contactCarousel) {
     }, 1000);
   };
   setContactStates(0, 1);
-  window.setInterval(advanceContactCarousel, 2000);
+  let contactRotationTimer = null;
+  preloadImageElements(contactItems).then(() => {
+    if (document.visibilityState === 'hidden') return;
+    contactRotationTimer = window.setInterval(advanceContactCarousel, 2000);
+  });
+  window.addEventListener('pagehide', () => window.clearInterval(contactRotationTimer));
 }
 const floatingInfoToggle = document.querySelector('.floating-info-toggle');
 const floatingInfoPanel = document.querySelector('#floating-info-panel');
@@ -230,7 +251,8 @@ if (aboutCarousel) {
   aboutDots.forEach((dot, i) => dot.addEventListener('click', () => { showAboutSlide(i); restartAboutTimer(); }));
   aboutCarousel.addEventListener('mouseenter', () => window.clearInterval(aboutTimer));
   aboutCarousel.addEventListener('mouseleave', restartAboutTimer);
-  restartAboutTimer();
+  preloadImageElements(aboutSlides.flatMap(slide => [...slide.querySelectorAll('img')])).then(restartAboutTimer);
+  window.addEventListener('pagehide', () => window.clearInterval(aboutTimer));
 }
 
 // Nuestro Sello: la información cambia al pasar el cursor, tocar o enfocar una botella.

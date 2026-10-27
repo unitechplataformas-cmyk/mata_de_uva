@@ -42,7 +42,11 @@ if(wedding){
   let activeIndex=imgs.findIndex(img=>img.classList.contains('is-active'));
   let autoplayId=null;
 
-  imgs.slice(1).forEach(img=>{const preload=new Image(); preload.src=img.currentSrc||img.src;});
+  const preloadImages=images=>Promise.all(images.map(img=>{
+    if(img.complete&&img.naturalWidth>0)return Promise.resolve();
+    const preload=new Image(); preload.decoding='async';
+    return new Promise(resolve=>{const done=()=>resolve();preload.addEventListener('load',done,{once:true});preload.addEventListener('error',done,{once:true});preload.src=img.currentSrc||img.src;}).then(()=>typeof preload.decode==='function'?preload.decode().catch(()=>{}):undefined);
+  }));
 
   const showSlide=(index)=>{
     activeIndex=(index+imgs.length)%imgs.length;
@@ -55,7 +59,8 @@ if(wedding){
   };
   dots.forEach((dot,i)=>dot.addEventListener('click',()=>{showSlide(i); restartAutoplay();}));
   showSlide(activeIndex<0?0:activeIndex);
-  restartAutoplay();
+  preloadImages(imgs).then(restartAutoplay);
+  window.addEventListener('pagehide',()=>{if(autoplayId!==null)window.clearInterval(autoplayId);});
 }
 </script>
 <aside class="floating-contact" aria-label="Contacto rápido">
