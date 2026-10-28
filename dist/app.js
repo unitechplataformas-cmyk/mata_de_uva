@@ -127,7 +127,80 @@ if (experienceCarousel && experienceCards.length === 3) {
 const middleGalleryTrack = document.querySelector('.middle-gallery-track');
 if (middleGalleryTrack) {
   const middleGalleryItems = [...middleGalleryTrack.children];
+  middleGalleryItems.forEach((item, index) => {
+    item.dataset.galleryIndex = String(index);
+    const image = item.querySelector('img');
+    const source = item.getAttribute('href');
+    const freshSource = source ? `${source}${source.includes('?') ? '&' : '?'}v=official19` : source;
+    if (freshSource) item.setAttribute('href', freshSource);
+    if (image && freshSource) image.setAttribute('src', freshSource);
+    item.setAttribute('aria-label', `Abrir fotografía ${index + 1} de ${middleGalleryItems.length}`);
+    if (image) image.dataset.galleryIndex = String(index);
+  });
   middleGalleryItems.forEach(item => middleGalleryTrack.appendChild(item.cloneNode(true)));
+
+  const lightbox = document.querySelector('[data-gallery-lightbox]');
+  const lightboxImage = lightbox?.querySelector('[data-lightbox-image]');
+  const lightboxCaption = lightbox?.querySelector('[data-lightbox-caption]');
+  const previousButton = lightbox?.querySelector('[data-lightbox-prev]');
+  const nextButton = lightbox?.querySelector('[data-lightbox-next]');
+  const closeButton = lightbox?.querySelector('[data-lightbox-close]');
+  const galleryImages = middleGalleryItems.map(item => ({
+    src: item.getAttribute('href'),
+    alt: item.querySelector('img')?.alt || ''
+  }));
+  let lightboxIndex = -1;
+  let lastGalleryTrigger = null;
+  const updateLightbox = index => {
+    if (!lightboxImage || !galleryImages[index]) return;
+    lightboxIndex = index;
+    const image = galleryImages[index];
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    if (lightboxCaption) lightboxCaption.textContent = `${index + 1} / ${galleryImages.length}`;
+    if (previousButton) previousButton.disabled = index === 0;
+    if (nextButton) nextButton.disabled = index === galleryImages.length - 1;
+  };
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    lightboxImage?.removeAttribute('src');
+    lastGalleryTrigger?.focus();
+    lightboxIndex = -1;
+  };
+  const openLightbox = (index, trigger) => {
+    if (!lightbox || !galleryImages[index]) return;
+    lastGalleryTrigger = trigger;
+    updateLightbox(index);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    closeButton?.focus();
+  };
+  middleGalleryTrack.addEventListener('click', event => {
+    const link = event.target.closest('.middle-gallery-link');
+    if (!link) return;
+    event.preventDefault();
+    openLightbox(Number(link.dataset.galleryIndex), link);
+  });
+  middleGalleryTrack.addEventListener('keydown', event => {
+    const link = event.target.closest('.middle-gallery-link');
+    if (!link || (event.key !== 'Enter' && event.key !== ' ')) return;
+    event.preventDefault();
+    openLightbox(Number(link.dataset.galleryIndex), link);
+  });
+  previousButton?.addEventListener('click', () => { if (lightboxIndex > 0) updateLightbox(lightboxIndex - 1); });
+  nextButton?.addEventListener('click', () => { if (lightboxIndex < galleryImages.length - 1) updateLightbox(lightboxIndex + 1); });
+  closeButton?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', event => {
+    if (!lightbox?.classList.contains('is-open')) return;
+    if (event.key === 'Escape') closeLightbox();
+    else if (event.key === 'ArrowLeft' && lightboxIndex > 0) updateLightbox(lightboxIndex - 1);
+    else if (event.key === 'ArrowRight' && lightboxIndex < galleryImages.length - 1) updateLightbox(lightboxIndex + 1);
+  });
 }
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
 if (heroSlides.length > 1) {
