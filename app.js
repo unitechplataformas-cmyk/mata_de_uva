@@ -114,12 +114,21 @@ const startExperienceRotation = () => {
 };
 if (experienceCarousel && experienceCards.length === 3) {
   updateExperiencePositions(activeExperience);
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   experienceDots.forEach(dot => dot.addEventListener('click', () => updateExperiencePositions(Number(dot.dataset.experienceTarget))));
   experienceCards.forEach((card, index) => {
-    card.addEventListener('click', () => updateExperiencePositions(index));
+    card.addEventListener('click', () => {
+      if (!finePointer.matches) updateExperiencePositions(index);
+    });
+    card.addEventListener('pointerenter', () => {
+      if (finePointer.matches) updateExperiencePositions(index);
+    });
     card.addEventListener('keydown', event => {
       if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); updateExperiencePositions(index); }
     });
+  });
+  experienceCarousel.addEventListener('pointerleave', () => {
+    if (finePointer.matches) updateExperiencePositions(1);
   });
   startExperienceRotation();
   window.addEventListener('pagehide', () => window.clearInterval(experienceRotationTimer));

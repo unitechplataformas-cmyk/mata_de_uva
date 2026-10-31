@@ -1369,6 +1369,52 @@ body:not(.events-page){padding-top:104px}
 }
 #contenido .contact.section .contact-copy > p { text-align: left; }
 
+/* Vive Mata de Uva: el mockup desktop utiliza un bloque de copia más ancho
+   para que cada párrafo se distribuya en dos renglones. El ajuste queda
+   aislado a esta sección y se vuelve fluido en pantallas pequeñas. */
+#contenido .v2-experiences .experiences-intro {
+  max-width: 1120px;
+}
+#contenido .v2-experiences .experiences-intro > p {
+  width: min(920px, calc(100% - 48px));
+  max-width: 920px;
+  margin-inline: auto;
+  text-align: center;
+}
+#contenido .v2-experiences .experiences-intro > p:nth-of-type(2) {
+  width: min(920px, calc(100% - 48px));
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.vive-copy {
+  width: min(920px, calc(100% - 48px));
+  max-width: 920px;
+  margin-inline: auto;
+}
+.vive-copy > p {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  #contenido .v2-experiences .experiences-intro {
+    max-width: 100%;
+  }
+  #contenido .v2-experiences .experiences-intro > p {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  .vive-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 .nosotros-page .nosotros-passion-copy,
 .nosotros-page .nosotros-seal-intro,
 .nosotros-page .nosotros-know > p:not(.nosotros-kicker) {
@@ -1639,6 +1685,34 @@ body:not(.events-page){padding-top:104px}
 .nosotros-page .nosotros-passion-copy p,
 .nosotros-page .nosotros-seal-intro,
 .nosotros-page .nosotros-know > p:not(.nosotros-kicker) {
+  text-align: center;
+}
+.nosotros-page .nosotros-passion-copy {
+  width: min(850px, 100%);
+  max-width: 850px;
+  margin-inline: auto;
+}
+.nosotros-page .nosotros-passion-copy > p {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+}
+.nosotros-page .nosotros-passion-copy > p:nth-of-type(2),
+.nosotros-page .nosotros-passion-copy > p:nth-of-type(3) {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  font-family: "Avenir Next LT Pro", Avenir, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+.nosotros-page .nosotros-passion-copy > p {
   text-align: center;
 }
 .vineyard-page .vineyard-hero-copy > p:not(.vineyard-kicker),
@@ -2176,6 +2250,33 @@ p{font-family:"Avenir Next LT Pro",Avenir,Arial,sans-serif !important;letter-spa
   line-height: 1.45 !important;
   letter-spacing: 0 !important;
 }
+
+/* Home: subtítulos equivalentes y copy de tarjetas del carrusel. */
+#contenido .v2-experiences .experiences-intro > .v3-title-kicker,
+#contenido .middle-gallery-kicker {
+  font-family: "Avenir Next LT Pro", Avenir, Arial, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  letter-spacing: .08em;
+  text-align: center;
+}
+#contenido .experience-card-overlay > p {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+  text-align-last: auto;
+  font-family: "Avenir Next LT Pro", Avenir, Arial, sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.35;
+}
+@media (max-width: 700px) {
+  #contenido .experience-card-overlay > p {
+    text-align: left;
+    text-align-last: left;
+  }
+}
 @media (max-width: 700px) {
   #contenido .future .intro > p {
     font-size: 14px !important;
@@ -2631,6 +2732,27 @@ p{font-family:"Avenir Next LT Pro",Avenir,Arial,sans-serif !important;letter-spa
 .experiencias-page .experiencias-card--white .experiencias-cta {
   align-self: flex-start;
   margin-top: 18px;
+}
+
+/* Cabalgatas: todos los elementos del bloque editorial comparten el margen
+   izquierdo de la columna, como en la composición de Cata de vinos. */
+.experiencias-page .experiencias-card--sand .experiencias-card-copy {
+  text-align: left;
+}
+.experiencias-page .experiencias-card--sand .experiencias-eyebrow,
+.experiencias-page .experiencias-card--sand h2,
+.experiencias-page .experiencias-card--sand .experiencias-card-copy > p:not(.experiencias-eyebrow),
+.experiencias-page .experiencias-card--sand .experiencias-cta {
+  margin-left: 0;
+  margin-right: 0;
+}
+.experiencias-page .experiencias-card--sand .experiencias-card-copy > p:not(.experiencias-eyebrow) {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+.experiencias-page .experiencias-card--sand .experiencias-cta {
+  align-self: flex-start;
 }
 
 /* Vista ampliada de la galería del Inicio. */
