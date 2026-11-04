@@ -2893,3 +2893,9 @@ body.lightbox-open { overflow: hidden; }
   max-width: none;
   margin-inline: 0;
 }
+
+/* Conócenos: el corte aprobado se aplica solo en escritorio. */
+.nosotros-page .nosotros-know .know-desktop-break { display: inline; }
+@media (max-width: 800px) {
+  .nosotros-page .nosotros-know .know-desktop-break { display: none; }
+}

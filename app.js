@@ -9,6 +9,30 @@ function closeMenu() {
   document.body.classList.remove('menu-open');
 }
 
+// Conócenos: corte exacto del primer párrafo en escritorio; flujo natural en móvil.
+if (document.body?.classList.contains('nosotros-page')) {
+  const firstKnowParagraph = document.querySelector('.nosotros-know > p:not(.nosotros-kicker)');
+  if (firstKnowParagraph) {
+    const fullText = firstKnowParagraph.textContent.trim();
+    const marker = 'Nuestra historia apenas comienza y queremos que siga creciendo con nuevas experiencias, encuentros y';
+    const syncKnowBreak = () => {
+      if (window.matchMedia('(min-width: 801px)').matches) {
+        const cut = fullText.indexOf(marker) + marker.length;
+        if (cut > marker.length - 1) {
+          const breakMark = document.createElement('span');
+          breakMark.className = 'know-desktop-break';
+          breakMark.append(document.createElement('br'));
+          firstKnowParagraph.replaceChildren(document.createTextNode(fullText.slice(0, cut)), breakMark, document.createTextNode(` ${fullText.slice(cut).trim()}`));
+        }
+      } else {
+        firstKnowParagraph.textContent = fullText;
+      }
+    };
+    syncKnowBreak();
+    window.addEventListener('resize', syncKnowBreak, { passive: true });
+  }
+}
+
 navigation.setAttribute('aria-hidden', isMobileMenu() ? 'true' : 'false');
 
 // Corrección de navegación: las agendas de Nosotros abren Contacto directamente.

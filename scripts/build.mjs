@@ -33,13 +33,13 @@ for (const [relativeFile, assetPrefix] of pageFiles) {
   const outputFile = resolve(dist, relativeFile);
   let html = readFileSync(outputFile, "utf8");
   html = html
-    .replace(/styles\.css\?[^\"]+/g, "styles.css?v=passion-layout-20261103")
-    .replace(/app\.js\?[^\"]+/g, "app.js?v=passion-breaks-20261103b");
+    .replace(/styles\.css\?[^\"]+/g, "styles.css?v=conocenos-layout-20261104")
+    .replace(/app\.js\?[^\"]+/g, "app.js?v=conocenos-breaks-20261104");
   if (!html.includes('class="floating-contact"')) {
     const component = floatingContactTemplate.replaceAll("__ASSET_PREFIX__", assetPrefix);
     html = html.replace("</body>", `${component}</body>`);
-    writeFileSync(outputFile, html);
   }
+  writeFileSync(outputFile, html);
 }
 
 const required = ["index.html", "styles.css", "app.js", "assets/CormorantGaramond-Medium.ttf"];
