@@ -32,6 +32,9 @@ const pageFiles = [
 for (const [relativeFile, assetPrefix] of pageFiles) {
   const outputFile = resolve(dist, relativeFile);
   let html = readFileSync(outputFile, "utf8");
+  html = html
+    .replace(/styles\.css\?[^\"]+/g, "styles.css?v=passion-layout-20261103")
+    .replace(/app\.js\?[^\"]+/g, "app.js?v=passion-breaks-20261103b");
   if (!html.includes('class="floating-contact"')) {
     const component = floatingContactTemplate.replaceAll("__ASSET_PREFIX__", assetPrefix);
     html = html.replace("</body>", `${component}</body>`);

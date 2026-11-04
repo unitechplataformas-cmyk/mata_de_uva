@@ -312,6 +312,34 @@ h3,
 .about-slide:nth-child(3) { background: url('assets/sobre-nosotros-v3.jpeg') center / cover no-repeat; }
 .about-slide-overlay h2 { margin: 0 0 14px; color: #fff; font: 500 clamp(28px, 3vw, 44px)/1.05 var(--font-editorial); letter-spacing: 1px; }
 .about-slide-overlay p { max-width: 680px; margin: 0; color: #fff; font: 400 clamp(14px, 1.2vw, 18px)/1.4 var(--font-copy); }
+.about-slide:nth-child(3) .about-slide-overlay > p {
+  width: min(620px, 100%);
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  line-height: 1.2;
+}
+.about-slide:nth-child(3) .philosophy-copy > span:not(.philosophy-break) {
+  display: inline;
+}
+.about-slide:nth-child(3) .philosophy-copy .philosophy-break {
+  display: inline;
+}
+.about-slide:nth-child(2) .history-copy {
+  width: min(680px, 100%);
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  text-align-last: center;
+  line-height: 1.2;
+}
+@media (max-width: 700px) {
+  .about-slide:nth-child(3) .philosophy-copy .philosophy-break {
+    display: none;
+  }
+}
 .about-carousel-dots { position: absolute; z-index: 2; bottom: 24px; left: 50%; display: flex; gap: 8px; transform: translateX(-50%); }
 .about-carousel-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: #fff8; cursor: pointer; }
 .about-carousel-dots button.is-active { background: var(--pink); }
@@ -1616,6 +1644,12 @@ body:not(.events-page){padding-top:104px}
   width: 100%;
 }
 
+/* Nuestra historia: prevalece sobre la alineación global del overlay. */
+#contenido .about-slide:nth-child(2) .history-copy {
+  text-align: justify;
+  text-align-last: center;
+}
+
 /* Hero global: subrayado blanco adaptado a la última línea del título. */
 .hero-title-last-line {
   display: inline-block;
@@ -2693,9 +2727,10 @@ p{font-family:"Avenir Next LT Pro",Avenir,Arial,sans-serif !important;letter-spa
   text-justify: auto;
 }
 .vineyard-page main .vineyard-visit > p + p {
-  width: min(300px, 92vw);
-  max-width: 300px;
+  width: min(760px, 92vw);
+  max-width: 760px;
 }
+.visit-desktop-break { display: inline; }
 .vineyard-page main .vineyard-visit-button {
   width: 213px;
   min-width: 213px;
@@ -2715,6 +2750,7 @@ p{font-family:"Avenir Next LT Pro",Avenir,Arial,sans-serif !important;letter-spa
     width: min(213px, 100%);
     min-width: 0;
   }
+  .visit-desktop-break { display: none; }
 }
 
 /* Cata de vinos: el bloque editorial permanece alineado al margen izquierdo
@@ -2817,4 +2853,43 @@ body.lightbox-open { overflow: hidden; }
   .gallery-lightbox-nav { width: 40px; height: 40px; font-size: 30px; }
   .gallery-lightbox-prev { left: 8px; }
   .gallery-lightbox-next { right: 8px; }
+}
+
+/* Conócenos: ambos párrafos comparten un bloque amplio y centrado en desktop. */
+.nosotros-page .nosotros-know > p:not(.nosotros-kicker) {
+  width: min(1400px, calc(100% - 48px));
+  max-width: 1400px;
+  margin-inline: auto;
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .nosotros-page .nosotros-know > p:not(.nosotros-kicker) {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Nuestra pasión: mismo ancho de referencia para los tres párrafos. */
+.nosotros-page .nosotros-passion-copy {
+  width: min(1100px, calc(100% - 48px));
+  max-width: 1100px;
+  margin-inline: auto;
+}
+.nosotros-page .nosotros-passion-copy > p {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .nosotros-page .nosotros-passion-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.nosotros-page .nosotros-passion-copy > p:nth-of-type(2) {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
 }

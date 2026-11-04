@@ -27,6 +27,33 @@ toggle.addEventListener('click', () => {
   document.body.classList.toggle('menu-open', open);
 });
 navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+// Nuestra pasión: cortes exactos del mockup en escritorio, flujo natural en móvil.
+if (document.body?.classList.contains('nosotros-page')) {
+  const passionParagraphs = [...document.querySelectorAll('.nosotros-passion-copy > p')];
+  const passionMarkers = [
+    'Nos apasiona conocer la historia del vino y su vínculo con la tierra, la tradición y las generaciones que',
+    'En México, esta historia se remonta a la época colonial. En 1524, Hernán Cortés impulsó el cultivo de la',
+    'Esa herencia nos inspira a comenzar nuestro propio camino, con respeto por la tierra y la ilusión de'
+  ];
+  passionParagraphs.forEach((paragraph, index) => {
+    paragraph.dataset.fullText = paragraph.textContent.trim();
+    const applyBreak = () => {
+      const text = paragraph.dataset.fullText;
+      if (window.matchMedia('(min-width: 801px)').matches) {
+        const marker = passionMarkers[index];
+        const cut = text.indexOf(marker) + marker.length;
+        if (cut > marker.length - 1) {
+          paragraph.replaceChildren(document.createTextNode(text.slice(0, cut)), document.createElement('br'), document.createTextNode(` ${text.slice(cut).trim()}`));
+        }
+      } else {
+        paragraph.textContent = text;
+      }
+    };
+    applyBreak();
+    window.addEventListener('resize', applyBreak, { passive: true });
+  });
+}
 document.addEventListener('pointerdown', event => {
   if (toggle.getAttribute('aria-expanded') !== 'true') return;
   if (!event.target.closest('.site-header')) closeMenu();
